@@ -24,6 +24,17 @@ window/size/viewport_height=1080
 
 project/assembly_name="Buoyancy YT"
 
+[input]
+
+Left={
+"deadzone": 0.5,
+"events": []
+}
+Right={
+"deadzone": 0.5,
+"events": []
+}
+
 [rendering]
 
 anti_aliasing/quality/msaa_3d=3
