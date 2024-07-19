@@ -24,9 +24,9 @@ func _process(delta):
 	apply_force(Vector3(0, 0, -down_wind_force))
 	
 	if Input.is_action_pressed("Left"):
-		apply_force(Vector3(wind_force * delta, 0, 0))
+		apply_force(Vector3(wind_force, 0, 0))
 	if Input.is_action_pressed("Right"):
-		apply_force(Vector3(-wind_force * delta, 0, 0))
+		apply_force(Vector3(-wind_force, 0, 0))
 
 func _physics_process(delta):
 	submerged = false
