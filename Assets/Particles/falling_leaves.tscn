@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2e1u0ydq30ql"]
+[gd_scene load_steps=8 format=3 uid="uid://c2e1u0ydq30ql"]
 
 [ext_resource type="Texture2D" uid="uid://cblc2globxl47" path="res://Assets/Particles/Leaf.png" id="1_ahy21"]
+[ext_resource type="Script" path="res://Assets/Particles/FallingLeaves.gd" id="2_7t5wr"]
 
 [sub_resource type="Curve" id="Curve_t2c12"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.937669, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -18,9 +19,8 @@ angle_max = 45.0
 spread = 43.182
 angular_velocity_min = -90.0
 angular_velocity_max = 90.0
-gravity = Vector3(0, -20.51, 0)
-scale_min = 1.2
-scale_max = 2.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.5
 scale_curve = SubResource("CurveTexture_6khx4")
 turbulence_enabled = true
 turbulence_noise_strength = 5.41
@@ -46,3 +46,4 @@ randomness = 1.0
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_wscyl")
 draw_pass_1 = SubResource("QuadMesh_77dai")
+script = ExtResource("2_7t5wr")

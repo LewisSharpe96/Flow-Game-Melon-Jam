@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=19 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
 [ext_resource type="Shader" path="res://assets/shaders/water.gdshader" id="2_twn8n"]
 [ext_resource type="Script" path="res://Water.gd" id="3_t5r3v"]
 [ext_resource type="PackedScene" uid="uid://dl567efhbp7vv" path="res://boat.tscn" id="4_7remr"]
+[ext_resource type="PackedScene" uid="uid://c2e1u0ydq30ql" path="res://Assets/Particles/falling_leaves.tscn" id="6_xqw8r"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
 panorama = ExtResource("1_cyo0m")
@@ -117,3 +118,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.3641)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04562, 0)
 shape = SubResource("BoxShape3D_7gxkk")
+
+[node name="PetalSpawner" parent="." instance=ExtResource("6_xqw8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0859815, 23.5843, 7.82105)
+extra_cull_margin = 100.0
+amount = 60
