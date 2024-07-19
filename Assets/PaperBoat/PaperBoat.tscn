@@ -1,6 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c15u1ent6np34"]
+[gd_scene load_steps=9 format=3 uid="uid://c15u1ent6np34"]
 
 [ext_resource type="Material" uid="uid://bn8orxqdpc4tx" path="res://Assets/PaperBoat/PaperBoat.tres" id="1_7pea1"]
+[ext_resource type="Script" path="res://Assets/PaperBoat/PaperBoat.gd" id="1_mw25l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fukjd"]
+radius = 0.800283
+height = 3.67097
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx3db"]
 resource_name = "Material #25"
@@ -73,7 +78,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kfl4x")
 
-[node name="PaperBoat" type="Node3D"]
+[node name="PaperBoat" type="RigidBody3D"]
+script = ExtResource("1_mw25l")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_fukjd")
 
 [node name="Plane001" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.54, 0, 0, 0, 2.54, -4.13819e-07, 0, 4.13819e-07, 2.54, 0, -2.52435e-31, -1.14575e-08)

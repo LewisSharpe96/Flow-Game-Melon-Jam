@@ -10,12 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Water sim YT"
+config/name="Buoyancy YT"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-run/max_fps=60
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [dotnet]
 
-project/assembly_name="Water sim YT"
+project/assembly_name="Buoyancy YT"
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=3
