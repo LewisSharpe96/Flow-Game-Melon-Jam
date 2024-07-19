@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dp13ycqjdhu6o" path="res://Assets/PaperBoat/PaperBoat_Normal.png" id="3_vacmc"]
 
 [resource]
+albedo_color = Color(0.576471, 0.509804, 0.74902, 1)
 albedo_texture = ExtResource("1_572md")
 metallic = 1.0
 metallic_texture = ExtResource("2_hbong")
