@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://boackhocujcq0"]
+
+[ext_resource type="Shader" path="res://simulation.gdshader" id="1_1jubg"]
+[ext_resource type="Shader" uid="uid://d2cjaopc2vfer" path="res://main.tres" id="2_nk15b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mewmt"]
+viewport_path = NodePath("Simulation")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rghv1"]
+resource_local_to_scene = true
+shader = ExtResource("1_1jubg")
+shader_parameter/phase = 0.2
+shader_parameter/attenuation = 0.999
+shader_parameter/deltaUV = 3.0
+shader_parameter/sim_tex = SubResource("ViewportTexture_mewmt")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fdhny"]
+viewport_path = NodePath("Simulation")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psutl"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_nk15b")
+shader_parameter/Simulation = SubResource("ViewportTexture_fdhny")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4opy0"]
+material = SubResource("ShaderMaterial_psutl")
+subdivide_width = 500
+subdivide_depth = 500
+
+[node name="Main" type="Node3D"]
+
+[node name="Simulation" type="SubViewport" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Simulation"]
+material = SubResource("ShaderMaterial_rghv1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_4opy0")
