@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2e1u0ydq30ql"]
+
+[ext_resource type="Texture2D" uid="uid://cblc2globxl47" path="res://Assets/Particles/Leaf.png" id="1_ahy21"]
+
+[sub_resource type="Curve" id="Curve_t2c12"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.937669, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6khx4"]
+curve = SubResource("Curve_t2c12")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wscyl"]
+emission_shape_scale = Vector3(10, 5, 5)
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -45.0
+angle_max = 45.0
+spread = 43.182
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, -20.51, 0)
+scale_min = 1.2
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_6khx4")
+turbulence_enabled = true
+turbulence_noise_strength = 5.41
+turbulence_noise_scale = 4.373
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc2pv"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.930744, 0.653422, 0.754062, 1)
+albedo_texture = ExtResource("1_ahy21")
+
+[sub_resource type="QuadMesh" id="QuadMesh_77dai"]
+material = SubResource("StandardMaterial3D_yc2pv")
+
+[node name="Node3D" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423946, 0.0432019, -0.0070076)
+amount = 32
+lifetime = 15.0
+randomness = 1.0
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_wscyl")
+draw_pass_1 = SubResource("QuadMesh_77dai")

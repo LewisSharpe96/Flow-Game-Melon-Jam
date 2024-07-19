@@ -1,0 +1,121 @@
+[gd_scene load_steps=20 format=3 uid="uid://bk28kctbnc4al"]
+
+[ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_lanog"]
+[ext_resource type="Shader" path="res://assets/shaders/water.gdshader" id="2_pptk6"]
+[ext_resource type="Script" path="res://Water.gd" id="3_3snpm"]
+[ext_resource type="PackedScene" uid="uid://dl567efhbp7vv" path="res://boat.tscn" id="4_v34ng"]
+[ext_resource type="Terrain3DStorage" uid="uid://oilcgiqk1u25" path="res://Terrain/terrain_3d_storage.res" id="5_i6j5i"]
+[ext_resource type="Terrain3DMaterial" uid="uid://c61y42aihwftx" path="res://Terrain/terrain_3d_material.tres" id="6_gpe5m"]
+[ext_resource type="Terrain3DAssets" uid="uid://bhn1bpsu0ewc5" path="res://Terrain/terrain_3d_assets.tres" id="7_dciwj"]
+[ext_resource type="PackedScene" uid="uid://c2e1u0ydq30ql" path="res://Assets/Particles/FallingLeaves.tscn" id="8_eq1wa"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
+panorama = ExtResource("1_lanog")
+
+[sub_resource type="Sky" id="Sky_wc0b5"]
+sky_material = SubResource("PanoramaSkyMaterial_vcvt7")
+
+[sub_resource type="Environment" id="Environment_w5hlc"]
+background_mode = 2
+sky = SubResource("Sky_wc0b5")
+tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_cascades = 2
+sdfgi_max_distance = 51.2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hy6fq"]
+seed = 50
+fractal_type = 2
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_brvoh"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_hy6fq")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hs2gb"]
+noise_type = 3
+fractal_type = 2
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u5h0n"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_hs2gb")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jbi1g"]
+noise_type = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7k2l2"]
+seamless = true
+seamless_blend_skirt = 0.25
+noise = SubResource("FastNoiseLite_jbi1g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n3y0"]
+render_priority = 0
+shader = ExtResource("2_pptk6")
+shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
+shader_parameter/albedo2 = Color(0, 0.47451, 0.764706, 1)
+shader_parameter/color_deep = Color(0.0792677, 0.237326, 0.266936, 1)
+shader_parameter/color_shallow = Color(0, 0.552941, 0.65098, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/wave_time = 0.0
+shader_parameter/wave_direction = Vector2(0, 2)
+shader_parameter/wave_2_direction = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/wave_speed = 0.2
+shader_parameter/noise_scale = 15.0
+shader_parameter/height_scale = 1.25
+shader_parameter/beers_law = 0.089
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 0.5
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0.745567, 0.999145, 1, 1)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_brvoh")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_u5h0n")
+shader_parameter/wave = SubResource("NoiseTexture2D_7k2l2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0xwda"]
+material = SubResource("ShaderMaterial_0n3y0")
+size = Vector2(500, 500)
+subdivide_width = 500
+subdivide_depth = 500
+
+[node name="Main" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_w5hlc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.940098, 0.085929, -0.329898, -0.219194, -0.893517, 0.391895, -0.261094, 0.440731, 0.858828, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_0xwda")
+script = ExtResource("3_3snpm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 14.4829, -15)
+
+[node name="Boat" parent="." instance=ExtResource("4_v34ng")]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("5_i6j5i")
+material = ExtResource("6_gpe5m")
+assets = ExtResource("7_dciwj")
+
+[node name="Node3D" parent="." instance=ExtResource("8_eq1wa")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 17.1951, 0)
