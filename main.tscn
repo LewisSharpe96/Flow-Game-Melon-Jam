@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b64rk3r14m5br"]
+[gd_scene load_steps=18 format=3 uid="uid://b64rk3r14m5br"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
+[ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
 [ext_resource type="Shader" path="res://assets/shaders/water.gdshader" id="2_twn8n"]
 [ext_resource type="Script" path="res://Water.gd" id="3_t5r3v"]
 [ext_resource type="PackedScene" uid="uid://dl567efhbp7vv" path="res://boat.tscn" id="4_7remr"]
@@ -82,7 +83,11 @@ size = Vector2(500, 500)
 subdivide_width = 500
 subdivide_depth = 500
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
+size = Vector3(44.2256, 6.08447, 1)
+
 [node name="Main" type="Node3D"]
+script = ExtResource("1_eu26w")
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -98,6 +103,17 @@ mesh = SubResource("PlaneMesh_0xwda")
 script = ExtResource("3_t5r3v")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 14.4829, -15)
+transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, -2.98774e-08, 0.422871, 0.90619, 8.21589e-08, 0.90619, -0.422871, 0, 21.648, -15.8773)
 
 [node name="Boat" parent="." instance=ExtResource("4_7remr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99501, 27.0155)
+
+[node name="BoatSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07537, 25.4469)
+
+[node name="RespawnArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.3641)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04562, 0)
+shape = SubResource("BoxShape3D_7gxkk")
