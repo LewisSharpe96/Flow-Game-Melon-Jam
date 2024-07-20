@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=45 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="16_el708"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="17_rsl4p"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="18_la8nv"]
-[ext_resource type="Script" path="res://Audio.gd" id="19_np67c"]
 [ext_resource type="AudioStream" uid="uid://cymcm0kndhsl4" path="res://Assets/Audio/background_audio.mp3" id="19_ote1p"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="19_wme33"]
 [ext_resource type="AudioStream" uid="uid://b1x7lody6hqmw" path="res://Assets/Audio/Music_audio.mp3" id="20_aj8wk"]
@@ -105,7 +104,7 @@ subdivide_depth = 500
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
 size = Vector3(44.2256, 6.08447, 1)
 
-[sub_resource type="Resource" id="Resource_5ffqi"]
+[sub_resource type="Resource" id="Resource_vlk1c"]
 script = ExtResource("12_qnmrm")
 amount = 30000
 enabled = true
@@ -114,7 +113,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_1q0h0"]
+[sub_resource type="Resource" id="Resource_baaui"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -125,7 +124,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_fdhpq"]
+[sub_resource type="Resource" id="Resource_3cocj"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -137,7 +136,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_lwraj"]
+[sub_resource type="Resource" id="Resource_tmrqp"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -153,7 +152,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_tuux5"]
+[sub_resource type="Resource" id="Resource_7ehwh"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(0.4, 1, 1)
@@ -163,9 +162,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_c4y6a"]
+[sub_resource type="Resource" id="Resource_e4736"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_5ffqi"), SubResource("Resource_1q0h0"), SubResource("Resource_fdhpq"), SubResource("Resource_lwraj"), SubResource("Resource_tuux5")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_vlk1c"), SubResource("Resource_baaui"), SubResource("Resource_3cocj"), SubResource("Resource_tmrqp"), SubResource("Resource_7ehwh")])
 
 [sub_resource type="Resource" id="Resource_o4jii"]
 script = ExtResource("18_la8nv")
@@ -184,7 +183,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_qjss3")
 
-[node name="Main2" type="Node3D"]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_eu26w")
 
 [node name="Environment" type="Node3D" parent="."]
@@ -234,7 +233,7 @@ debug_show_collision = true
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_c4y6a")
+modifier_stack = SubResource("Resource_e4736")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -253,7 +252,6 @@ negative = true
 shape = SubResource("Resource_ryc7p")
 
 [node name="Audio" type="Node" parent="."]
-script = ExtResource("19_np67c")
 
 [node name="BackgroundNoise" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("19_ote1p")
