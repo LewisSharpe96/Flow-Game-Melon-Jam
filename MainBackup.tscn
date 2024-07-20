@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=62 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -44,6 +44,7 @@ ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
+volumetric_fog_density = 0.02
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hy6fq"]
 seed = 50
@@ -119,19 +120,16 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
-size = Vector3(44.2256, 6.08447, 1)
-
-[sub_resource type="Resource" id="Resource_ew5vh"]
+[sub_resource type="Resource" id="Resource_dfsgd"]
 script = ExtResource("12_qnmrm")
-amount = 300000
+amount = 100000
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_orla7"]
+[sub_resource type="Resource" id="Resource_egwd6"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -142,7 +140,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_mtaqb"]
+[sub_resource type="Resource" id="Resource_uasti"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -154,7 +152,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_u30xb"]
+[sub_resource type="Resource" id="Resource_67q1o"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -170,7 +168,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_32gbo"]
+[sub_resource type="Resource" id="Resource_romo8"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(0.4, 1, 1)
@@ -180,9 +178,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_xt8l4"]
+[sub_resource type="Resource" id="Resource_eqej6"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_ew5vh"), SubResource("Resource_orla7"), SubResource("Resource_mtaqb"), SubResource("Resource_u30xb"), SubResource("Resource_32gbo")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_dfsgd"), SubResource("Resource_egwd6"), SubResource("Resource_uasti"), SubResource("Resource_67q1o"), SubResource("Resource_romo8")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -342,15 +340,6 @@ current = true
 [node name="BoatSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.077, 1.07537, 510.477)
 
-[node name="RespawnArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.077, 0, 460.666)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04562, 0)
-shape = SubResource("BoxShape3D_7gxkk")
-
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("7_ialyn")
 material = ExtResource("8_k7t7f")
@@ -374,16 +363,16 @@ transform = Transform3D(-7.37909, 0, 27.6724, 0, 28.6394, 0, -27.6724, 0, -7.379
 transform = Transform3D(-13.9986, 0, 24.985, 0, 28.6394, 0, -24.985, 0, -13.9986, 498.428, -2.09145, 503.002)
 
 [node name="SmallRock11" parent="Rocks" instance=ExtResource("10_qtujl")]
-transform = Transform3D(2.0197, 28.5012, -3.09751, 9.30279, -2.69576, -35.1332, -41.0292, 0.791771, -8.11843, 498.074, -2.63673, 509.018)
+transform = Transform3D(-33.1117, 16.3789, -8.48047, 9.30279, -2.69576, -35.1332, -24.3124, -23.3383, -1.89345, 501.333, -2.63673, 512.402)
 
 [node name="SmallRock12" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(-8.3428, 27.7876, -5.03599, 9.30279, -2.69576, -35.1332, -40.2228, -6.38704, -7.08112, 498.074, -2.4842, 506.992)
 
 [node name="SmallRock17" parent="Rocks" instance=ExtResource("10_qtujl")]
-transform = Transform3D(-8.587, 9.19104, 33.4738, 4.10908, 27.1129, -11.1102, -41.0292, 0.791771, -8.11843, 499.964, -2.57235, 517.216)
+transform = Transform3D(-38.9612, 5.72934, 11.6886, 4.10908, 27.1129, -11.1102, -15.4646, -7.23027, -32.4003, 509.214, -2.57235, 515.346)
 
 [node name="SmallRock18" parent="Rocks" instance=ExtResource("10_qtujl")]
-transform = Transform3D(-10.9749, 9.0266, 33.0271, -5.97453, 26.4185, -12.9966, -40.2228, -6.38704, -7.08112, 499.816, -2.53721, 515.19)
+transform = Transform3D(-39.6055, -0.349735, 12.3076, -5.97453, 26.4185, -12.9966, -13.0279, -11.0522, -31.4556, 507.442, -2.53721, 514.352)
 
 [node name="SmallRock3" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(8.94697, 0, -27.206, 0, 28.6394, 0, 27.206, 0, 8.94697, 492.869, -2.56851, 482.58)
@@ -425,7 +414,7 @@ transform = Transform3D(14.5413, -19.4603, -12.4923, 2.97571, 16.2088, -21.786, 
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_xt8l4")
+modifier_stack = SubResource("Resource_eqej6")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
