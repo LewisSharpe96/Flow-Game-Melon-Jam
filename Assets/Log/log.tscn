@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvir2r6ve8ht6"]
+[gd_scene load_steps=8 format=3 uid="uid://cvir2r6ve8ht6"]
 
-[ext_resource type="Texture2D" uid="uid://yt0uahtua2t4" path="res://assets/3d/Log/Old Wooden Log_LOD4__wcjgbc1_AlbedoAlpha.png" id="1_bgdoo"]
-[ext_resource type="Texture2D" uid="uid://cl8hpp3myfki1" path="res://assets/3d/Log/Old Wooden Log_LOD4__wcjgbc1_Metallic_Red_Rough_Green_AO_Blue.png" id="2_j8tl7"]
-[ext_resource type="Texture2D" uid="uid://cv3ot42fwbvhn" path="res://assets/3d/Log/Old Wooden Log_LOD4__wcjgbc1_Normal.png" id="3_600oa"]
+[ext_resource type="Texture2D" uid="uid://yt0uahtua2t4" path="res://Assets/Log/Old Wooden Log_LOD4__wcjgbc1_AlbedoAlpha.png" id="1_bgdoo"]
+[ext_resource type="Texture2D" uid="uid://cl8hpp3myfki1" path="res://Assets/Log/Old Wooden Log_LOD4__wcjgbc1_Metallic_Red_Rough_Green_AO_Blue.png" id="2_j8tl7"]
+[ext_resource type="Texture2D" uid="uid://cv3ot42fwbvhn" path="res://Assets/Log/Old Wooden Log_LOD4__wcjgbc1_Normal.png" id="3_600oa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5r6c"]
 resource_name = "default_material"
@@ -52,8 +52,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_m6l6t")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_78xk2"]
+height = 2.5959
+radius = 0.292854
+
 [node name="Log" type="Node3D"]
 
 [node name="Log" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_714vy")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Log"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0420212, 0)
+shape = SubResource("CylinderShape3D_78xk2")
