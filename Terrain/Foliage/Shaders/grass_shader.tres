@@ -1,0 +1,60 @@
+[gd_resource type="Shader" format=3 uid="uid://dbkpq6gvl3eqe"]
+
+[resource]
+code = "shader_type spatial;
+render_mode cull_disabled, unshaded;
+
+uniform float wind_speed : hint_range(0.0, 5.0) = 0.2;
+uniform float wind_strength : hint_range(0.0, 10.0) = 2.0;
+uniform float wind_texture_tile_size : hint_range(0.0, 50.0) = 20.0;
+uniform float wind_vertical_strength : hint_range(0.0, 1.0) = 0.3;
+uniform vec2 wind_horizontal_direction : hint_normal = vec2(1.0, 0.5);
+
+uniform sampler2D color_ramp : hint_albedo;
+uniform sampler2D wind_noise : hint_albedo;
+
+uniform vec3 character_position;
+uniform float character_radius : hint_range(0.0, 10.0) = 3.0;
+uniform sampler2D character_distance_falloff_curve : hint_albedo;
+uniform float character_push_strength : hint_range(0.0, 10.0) = 1.0;
+
+varying float debug_wind;
+
+void vertex() {
+    vec3 world_vert = (WORLD_MATRIX * vec4(VERTEX, 1.0)).xyz;
+
+    vec2 normalized_wind_direction = normalize(wind_horizontal_direction);
+    vec2 world_uv = world_vert.xz / wind_texture_tile_size + normalized_wind_direction * TIME * wind_speed;
+    float displacement_affect = (1.0 - UV.y);
+    float wind_noise_intensity = (texture(wind_noise, world_uv).r - 0.5);
+
+    vec2 vert_space_horizontal_dir = (inverse(WORLD_MATRIX) * vec4(wind_horizontal_direction, 0.0, 0.0)).xy;
+    vert_space_horizontal_dir = normalize(vert_space_horizontal_dir);
+
+    vec3 bump_wind = vec3(
+        wind_noise_intensity * vert_space_horizontal_dir.x,
+        1.0 - wind_noise_intensity,
+        wind_noise_intensity * vert_space_horizontal_dir.y
+    );
+    bump_wind = normalize(bump_wind);
+    bump_wind *= vec3(
+        wind_strength,
+        wind_vertical_strength,
+        wind_strength
+    );
+    VERTEX += bump_wind * displacement_affect;
+
+    vec3 dir_to_character = character_position - WORLD_MATRIX[3].xyz;
+    float distance_to_character = length(dir_to_character);
+    float falloff = 1.0 - smoothstep(0.0, 1.0, distance_to_character / character_radius);
+    dir_to_character = (inverse(WORLD_MATRIX) * vec4(dir_to_character, 0.0)).xyz;
+    dir_to_character = normalize(dir_to_character);
+
+    float falloff_curve = texture(character_distance_falloff_curve, vec2(falloff)).x;
+    VERTEX += normalize(-dir_to_character) * falloff_curve * character_push_strength * displacement_affect;
+}
+
+void fragment() {
+    ALBEDO = texture(color_ramp, vec2(1.0 - UV.y, 0.0)).rgb;
+}
+"
