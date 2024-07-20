@@ -9,7 +9,6 @@ func _ready():
 	boat_spawn = $BoatSpawn
 	boat = $Boat
 	bottom_area = $RespawnArea
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

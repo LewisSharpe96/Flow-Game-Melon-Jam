@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=41 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -18,7 +18,10 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="16_el708"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="17_rsl4p"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="18_la8nv"]
+[ext_resource type="Script" path="res://Audio.gd" id="19_np67c"]
 [ext_resource type="AudioStream" uid="uid://cymcm0kndhsl4" path="res://Assets/Audio/background_audio.mp3" id="19_ote1p"]
+[ext_resource type="AudioStream" uid="uid://b1x7lody6hqmw" path="res://Assets/Audio/Music_audio.mp3" id="20_aj8wk"]
+[ext_resource type="AudioStream" uid="uid://dgxeqnllblsu" path="res://Assets/Audio/wind_audio.mp3" id="21_l2ovq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
 panorama = ExtResource("1_cyo0m")
@@ -100,7 +103,7 @@ subdivide_depth = 500
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
 size = Vector3(44.2256, 6.08447, 1)
 
-[sub_resource type="Resource" id="Resource_u5x6a"]
+[sub_resource type="Resource" id="Resource_8bm5x"]
 script = ExtResource("12_qnmrm")
 amount = 80000
 enabled = true
@@ -109,7 +112,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_tj3up"]
+[sub_resource type="Resource" id="Resource_5b4ed"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -120,7 +123,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_seyl5"]
+[sub_resource type="Resource" id="Resource_qklog"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -132,7 +135,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_mmuvh"]
+[sub_resource type="Resource" id="Resource_eu0ho"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -148,9 +151,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_7hy1y"]
+[sub_resource type="Resource" id="Resource_hah3r"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_u5x6a"), SubResource("Resource_tj3up"), SubResource("Resource_seyl5"), SubResource("Resource_mmuvh")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8bm5x"), SubResource("Resource_5b4ed"), SubResource("Resource_qklog"), SubResource("Resource_eu0ho")])
 
 [sub_resource type="Resource" id="Resource_7t12f"]
 script = ExtResource("18_la8nv")
@@ -206,7 +209,7 @@ debug_show_collision = true
 
 [node name="ProtonScatter" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_7hy1y")
+modifier_stack = SubResource("Resource_hah3r")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -219,6 +222,22 @@ transform = Transform3D(0.803441, 0, -0.595384, 0, 1, 0, 0.595384, 0, 0.803441, 
 script = ExtResource("17_rsl4p")
 shape = SubResource("Resource_7t12f")
 
-[node name="Sounds" type="AudioStreamPlayer" parent="."]
+[node name="Audio" type="Node" parent="."]
+script = ExtResource("19_np67c")
+
+[node name="BackgroundNoise" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("19_ote1p")
+volume_db = -10.0
 autoplay = true
+mix_target = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("20_aj8wk")
+volume_db = -35.0
+autoplay = true
+mix_target = 1
+
+[node name="Wind" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("21_l2ovq")
+volume_db = -35.0
+mix_target = 1
