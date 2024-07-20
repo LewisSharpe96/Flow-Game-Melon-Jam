@@ -39,12 +39,10 @@ albedo_texture = ExtResource("1_ahy21")
 material = SubResource("StandardMaterial3D_yc2pv")
 
 [node name="Node3D" type="GPUParticles3D"]
-transform = Transform3D(12.9633, 0, 0, 0, 1, 0, 0, 0, 5.85901, 0.0423946, 0.0432019, -0.0070076)
-amount = 60
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423946, 0.0432019, -0.0070076)
+amount = 32
 lifetime = 15.0
-preprocess = 20.0
 randomness = 1.0
-visibility_aabb = AABB(-4.22147, -4, -4.67421, 8.44295, 8, 9.34842)
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_wscyl")
 draw_pass_1 = SubResource("QuadMesh_77dai")
