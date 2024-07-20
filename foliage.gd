@@ -2,8 +2,10 @@ extends Node3D
 
 var scatter_item
 
-@export var max_wind_strength = 0.75
-@export var min_wind_strength = -0.75
+@export var wind_multiplier = 0.05 
+
+@export var max_wind_strength = 3.5
+@export var min_wind_strength = -3.5
 var original_wind_strength = -0.1
 var current_wind_strength
 
@@ -25,7 +27,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	scatter_item.override_material.set("shader_parameter/wind_strength", current_wind_strength)
-	scatter_item.override_material.set("shader_parameter/wind_speed", current_wind_speed)
+	#scatter_item.override_material.set("shader_parameter/wind_speed", current_wind_speed)
 	
 	if Input.is_action_pressed("Left"):
 		left = true
@@ -42,11 +44,11 @@ func _process(delta):
 
 func _physics_process(delta):
 	if still:
-		current_wind_strength = lerp(current_wind_strength, original_wind_strength, 0.05)
+		current_wind_strength = lerp(current_wind_strength, original_wind_strength, wind_multiplier)
 		current_wind_speed = lerp(current_wind_speed, original_wind_speed, 1)
 	if left:
-		current_wind_strength = lerp(current_wind_strength, min_wind_strength, 0.05)
+		current_wind_strength = lerp(current_wind_strength, min_wind_strength, wind_multiplier)
 		current_wind_speed = lerp(current_wind_speed, max_wind_speed, 1)
 	if right:
-		current_wind_strength = lerp(current_wind_strength, max_wind_strength, 0.05)
+		current_wind_strength = lerp(current_wind_strength, max_wind_strength, wind_multiplier)
 		current_wind_speed = lerp(current_wind_speed, max_wind_speed, 1)

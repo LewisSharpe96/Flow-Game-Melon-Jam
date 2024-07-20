@@ -7,3 +7,103 @@
 transform = Transform3D(0.0645191, 0, 0, 0, 0.210295, 0, 0, 0, 0.997546, 0, 0, 0)
 material_override = ExtResource("1_kwgly")
 mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.835126, -0.550058, 0, 0.550058, 0.835126, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.828846, -0.545921, 0.122406, 0.550058, 0.835126, 0, -0.102225, 0.0673306, 0.99248, 0, 0, 0)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.827722, -0.545181, -0.132862, 0.550058, 0.835126, 4.45393e-09, 0.110956, -0.0730817, 0.991134, 0, 0, 0)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.588394, -0.807793, 0.0355214, 0.807953, 0.589095, 0.0133134, -0.03168, 0.0208661, 0.99928, 0, 0, 0)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.723886, -0.687275, 0.0603359, 0.688045, 0.725594, 0.0102125, -0.0507983, 0.0341211, 0.998126, -2.52322, 0, -0.18734)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.711548, -0.679148, 0.180156, 0.685899, 0.727007, 0.0316163, -0.152447, 0.101072, 0.98313, -2.52322, 0, -0.18734)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.723307, -0.686892, -0.070746, 0.687879, 0.725703, -0.0131934, 0.0604032, -0.039122, 0.997407, -2.52322, 0, -0.18734)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.434208, -0.896012, 0.0928548, 0.898302, 0.438378, 0.0295448, -0.0671782, 0.0705832, 0.995241, -2.52322, 0, -0.18734)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle17" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.723886, -0.687275, 0.0603359, 0.688045, 0.725594, 0.0102125, -0.0507982, 0.0341211, 0.998126, 2.23105, 0, -0.198108)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle18" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.711548, -0.679148, 0.180156, 0.685898, 0.727007, 0.0316163, -0.152447, 0.101072, 0.98313, 2.23105, 0, -0.198108)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle19" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.723307, -0.686892, -0.070746, 0.687879, 0.725703, -0.0131934, 0.0604032, -0.039122, 0.997407, 2.23105, 0, -0.198108)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle20" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.434208, -0.896012, 0.0928548, 0.898302, 0.438378, 0.0295448, -0.0671782, 0.0705832, 0.995241, 2.23105, 0, -0.198108)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.937153, 0.348915, 0, -0.348805, 0.936856, 0.0251824, 0.00878655, -0.0235998, 0.999683, 2.75371, 0, 0.141806)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.933444, 0.351358, 0.0723077, -0.346314, 0.935214, -0.0737425, -0.0935333, 0.0437934, 0.994653, 2.75371, 0, 0.141806)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.93278, 0.351796, -0.0784839, -0.340039, 0.931082, 0.132128, 0.119557, -0.0965592, 0.988121, 2.75371, 0, 0.141806)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999494, -0.0018506, 0.0317254, 0.00171201, 0.999987, 0.00437398, -0.0317332, -0.00431741, 0.999487, 2.75371, 0, 0.141806)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.835126, -0.550058, 0, 0.54924, 0.833884, -0.0544971, 0.0299765, 0.0455119, 0.998514, -2.69267, 0, 0.153332)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.828846, -0.545921, 0.122406, 0.55481, 0.830214, -0.0540872, -0.0720962, 0.112742, 0.991005, -2.69267, 0, 0.153332)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.827722, -0.545181, -0.132862, 0.543192, 0.837866, -0.0540139, 0.140768, -0.0274612, 0.989661, -2.69267, 0, 0.153332)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")
+
+[node name="GrassTriangle16" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.588393, -0.807793, 0.0355214, 0.808477, 0.587081, -0.0411642, 0.0123981, 0.052939, 0.998521, -2.69267, 0, 0.153332)
+material_override = ExtResource("1_kwgly")
+mesh = ExtResource("2_64hyh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=64 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dv4xuo5wbvqm6" path="res://Assets/Rocks/small_rock.tscn" id="10_qtujl"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="11_t2pdq"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="12_qnmrm"]
+[ext_resource type="Script" path="res://foliage.gd" id="13_c2nqd"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="13_weldj"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="14_cy0lo"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="15_baqw0"]
@@ -121,16 +122,16 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_4e876"]
+[sub_resource type="Resource" id="Resource_81sk0"]
 script = ExtResource("12_qnmrm")
-amount = 100000
+amount = 20000
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_ulgyr"]
+[sub_resource type="Resource" id="Resource_f3cxf"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -141,7 +142,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ev0ma"]
+[sub_resource type="Resource" id="Resource_bqust"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -153,7 +154,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_um63a"]
+[sub_resource type="Resource" id="Resource_vooal"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -169,7 +170,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_b4sc0"]
+[sub_resource type="Resource" id="Resource_uc1ea"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(0.4, 1, 1)
@@ -179,9 +180,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_6qjfx"]
+[sub_resource type="Resource" id="Resource_1ja82"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_4e876"), SubResource("Resource_ulgyr"), SubResource("Resource_ev0ma"), SubResource("Resource_um63a"), SubResource("Resource_b4sc0")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_81sk0"), SubResource("Resource_f3cxf"), SubResource("Resource_bqust"), SubResource("Resource_vooal"), SubResource("Resource_uc1ea")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -412,10 +413,12 @@ transform = Transform3D(14.5413, -19.4603, -12.4923, 2.97571, 16.2088, -21.786, 
 transform = Transform3D(14.5413, -19.4603, -12.4923, 2.97571, 16.2088, -21.786, 22.9326, 10.2363, 10.7481, 477.129, -2.61275, 476.16)
 
 [node name="Foliage" type="Node3D" parent="."]
+script = ExtResource("13_c2nqd")
+wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_6qjfx")
+modifier_stack = SubResource("Resource_1ja82")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -464,6 +467,12 @@ libraries = {
 
 [node name="Dock" parent="Foliage" instance=ExtResource("25_toag1")]
 transform = Transform3D(-9.56283e-08, 0, -2.18772, 0, 2.18772, 0, 2.18772, 0, -9.56283e-08, 469.734, 2.59187, 251.314)
+
+[node name="Dock2" parent="Foliage" instance=ExtResource("25_toag1")]
+transform = Transform3D(2.18772, 0, -2.84217e-14, 0, 2.18772, 0, 2.84217e-14, 0, 2.18772, 488.948, 3.41651, 307.583)
+
+[node name="Dock3" parent="Foliage" instance=ExtResource("25_toag1")]
+transform = Transform3D(2.18772, 0, -2.84217e-14, 0, 2.18772, 0, 2.84217e-14, 0, 2.18772, 438.449, 3.41651, 308.851)
 
 [node name="Audio" type="Node" parent="."]
 

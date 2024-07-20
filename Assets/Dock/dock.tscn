@@ -166,3 +166,5 @@ transform = Transform3D(2.54, 0, 0, 0, 2.54, -4.13819e-07, 0, 4.13819e-07, 2.54,
 material_override = ExtResource("1_0f7bt")
 mesh = SubResource("ArrayMesh_u4jhc")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
