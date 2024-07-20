@@ -21,10 +21,10 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="16_el708"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="17_rsl4p"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="18_la8nv"]
-[ext_resource type="Script" path="res://Audio.gd" id="19_np67c"]
 [ext_resource type="AudioStream" uid="uid://cymcm0kndhsl4" path="res://Assets/Audio/background_audio.mp3" id="19_ote1p"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="19_wme33"]
 [ext_resource type="AudioStream" uid="uid://b1x7lody6hqmw" path="res://Assets/Audio/Music_audio.mp3" id="20_aj8wk"]
+[ext_resource type="Material" uid="uid://4mwcfm8j3vnd" path="res://Terrain/Foliage/Shaders/GrassTest.tres" id="20_p0nku"]
 [ext_resource type="AudioStream" uid="uid://dgxeqnllblsu" path="res://Assets/Audio/wind_audio.mp3" id="21_l2ovq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
@@ -119,7 +119,7 @@ dof_blur_near_transition = 898.33
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
 size = Vector3(44.2256, 6.08447, 1)
 
-[sub_resource type="Resource" id="Resource_5o2wb"]
+[sub_resource type="Resource" id="Resource_8sf4c"]
 script = ExtResource("12_qnmrm")
 amount = 30000
 enabled = true
@@ -128,7 +128,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_s7wfe"]
+[sub_resource type="Resource" id="Resource_sy0wq"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -139,7 +139,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_tycl6"]
+[sub_resource type="Resource" id="Resource_3uc5m"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -151,7 +151,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_amwts"]
+[sub_resource type="Resource" id="Resource_un8v5"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -167,7 +167,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_r6a1d"]
+[sub_resource type="Resource" id="Resource_gwrsm"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(0.4, 1, 1)
@@ -177,9 +177,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_1velq"]
+[sub_resource type="Resource" id="Resource_csild"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_5o2wb"), SubResource("Resource_s7wfe"), SubResource("Resource_tycl6"), SubResource("Resource_amwts"), SubResource("Resource_r6a1d")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8sf4c"), SubResource("Resource_sy0wq"), SubResource("Resource_3uc5m"), SubResource("Resource_un8v5"), SubResource("Resource_gwrsm")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -313,12 +313,13 @@ transform = Transform3D(14.5413, -19.4603, -12.4923, 2.97571, 16.2088, -21.786, 
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_1velq")
+modifier_stack = SubResource("Resource_csild")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
 [node name="ScatterItem" type="Node3D" parent="Foliage/ProtonScatter2"]
 script = ExtResource("16_el708")
+override_material = ExtResource("20_p0nku")
 path = "res://Terrain/Foliage/grass_triangle.tscn"
 
 [node name="ScatterShape" type="Node3D" parent="Foliage/ProtonScatter2"]
@@ -332,7 +333,6 @@ negative = true
 shape = SubResource("Resource_cpvlx")
 
 [node name="Audio" type="Node" parent="."]
-script = ExtResource("19_np67c")
 
 [node name="BackgroundNoise" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("19_ote1p")

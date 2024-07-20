@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://5laqqvx2sbv"]
 
-[ext_resource type="Material" uid="uid://b354ptpfepm4e" path="res://Terrain/Foliage/Shaders/grass_shadermaterial.tres" id="1_14jor"]
+[ext_resource type="Material" uid="uid://4mwcfm8j3vnd" path="res://Terrain/Foliage/Shaders/GrassTest.tres" id="1_kwgly"]
 [ext_resource type="ArrayMesh" uid="uid://bfv53e40cj1vp" path="res://Terrain/Foliage/grass_triangle.obj" id="2_64hyh"]
 
 [node name="GrassTriangle" type="MeshInstance3D"]
 transform = Transform3D(0.0645191, 0, 0, 0, 0.210295, 0, 0, 0, 0.997546, 0, 0, 0)
-material_override = ExtResource("1_14jor")
+material_override = ExtResource("1_kwgly")
 mesh = ExtResource("2_64hyh")
