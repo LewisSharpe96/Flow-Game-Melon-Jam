@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://4mwcfm8j3vnd"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://4mwcfm8j3vnd"]
 
 [ext_resource type="Shader" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="1_41685"]
 
@@ -9,16 +9,30 @@ colors = PackedColorArray(0.0762314, 0.0521919, 0.0168812, 1, 0.0380088, 0.03526
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n57bc"]
 gradient = SubResource("Gradient_jkpis")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pgdh3"]
+seed = 400
+frequency = 0.0021
+fractal_octaves = 8
+fractal_weighted_strength = 1.0
+domain_warp_fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3fxdi"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.7
+noise = SubResource("FastNoiseLite_pgdh3")
+
 [resource]
 render_priority = 0
 shader = ExtResource("1_41685")
-shader_parameter/alpha_scissor_threshold = null
+shader_parameter/alpha_scissor_threshold = 0.0
 shader_parameter/transmission = Color(1, 1, 1, 1)
 shader_parameter/secondary_color = Color(1, 1, 1, 1)
 shader_parameter/secondary_attenuation = 0.2
 shader_parameter/grass_height = 1.0
-shader_parameter/wind_direction = Vector2(1, 0)
-shader_parameter/wind_speed = 0.99
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 1.0
 shader_parameter/wind_strength = -0.1
 shader_parameter/noise_scale = 20.0
 shader_parameter/texture_gradient = SubResource("GradientTexture1D_n57bc")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_3fxdi")
