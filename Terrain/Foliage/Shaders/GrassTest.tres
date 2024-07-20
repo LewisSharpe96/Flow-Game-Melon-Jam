@@ -4,7 +4,7 @@
 
 [sub_resource type="Gradient" id="Gradient_jkpis"]
 offsets = PackedFloat32Array(0, 0.23796, 1)
-colors = PackedColorArray(0.0762314, 0.0521919, 0.0168812, 1, 0.0380088, 0.035261, 0.0126935, 1, 0.150745, 0.206867, 0.0231949, 1)
+colors = PackedColorArray(0.0762314, 0.0521919, 0.0168812, 1, 0.0380088, 0.035261, 0.0126935, 1, 0.114961, 0.172773, 0.0350839, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n57bc"]
 gradient = SubResource("Gradient_jkpis")
@@ -17,8 +17,8 @@ shader_parameter/transmission = Color(1, 1, 1, 1)
 shader_parameter/secondary_color = Color(1, 1, 1, 1)
 shader_parameter/secondary_attenuation = 0.2
 shader_parameter/grass_height = 1.0
-shader_parameter/wind_direction = Vector2(1, -0.5)
-shader_parameter/wind_speed = 1.295
-shader_parameter/wind_strength = 0.385
+shader_parameter/wind_direction = Vector2(1, 0)
+shader_parameter/wind_speed = 0.99
+shader_parameter/wind_strength = -0.1
 shader_parameter/noise_scale = 20.0
 shader_parameter/texture_gradient = SubResource("GradientTexture1D_n57bc")

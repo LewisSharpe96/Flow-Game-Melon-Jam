@@ -57,8 +57,9 @@ noise = SubResource("FastNoiseLite_hy6fq")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hs2gb"]
 noise_type = 3
+seed = 65
 fractal_type = 2
-fractal_octaves = 2
+fractal_octaves = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u5h0n"]
 seamless = true
@@ -92,7 +93,7 @@ shader_parameter/wave_2_direction = Vector2(0, 1)
 shader_parameter/time_scale = 0.025
 shader_parameter/wave_speed = 0.2
 shader_parameter/noise_scale = 15.0
-shader_parameter/height_scale = 1.25
+shader_parameter/height_scale = 1.705
 shader_parameter/beers_law = 0.089
 shader_parameter/depth_offset = -0.75
 shader_parameter/edge_scale = 0.1
@@ -119,7 +120,7 @@ dof_blur_near_transition = 898.33
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
 size = Vector3(44.2256, 6.08447, 1)
 
-[sub_resource type="Resource" id="Resource_8sf4c"]
+[sub_resource type="Resource" id="Resource_duymw"]
 script = ExtResource("12_qnmrm")
 amount = 30000
 enabled = true
@@ -128,7 +129,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_sy0wq"]
+[sub_resource type="Resource" id="Resource_egwe5"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -139,7 +140,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_3uc5m"]
+[sub_resource type="Resource" id="Resource_iyt6f"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -151,7 +152,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_un8v5"]
+[sub_resource type="Resource" id="Resource_2arba"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -167,7 +168,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_gwrsm"]
+[sub_resource type="Resource" id="Resource_krwvs"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(0.4, 1, 1)
@@ -177,9 +178,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_csild"]
+[sub_resource type="Resource" id="Resource_ohyei"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8sf4c"), SubResource("Resource_sy0wq"), SubResource("Resource_3uc5m"), SubResource("Resource_un8v5"), SubResource("Resource_gwrsm")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_duymw"), SubResource("Resource_egwe5"), SubResource("Resource_iyt6f"), SubResource("Resource_2arba"), SubResource("Resource_krwvs")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -248,7 +249,7 @@ debug_show_collision = true
 [node name="Logs" type="Node3D" parent="."]
 
 [node name="Log" parent="Logs" instance=ExtResource("10_pqxwv")]
-transform = Transform3D(-0.371523, 0, -2.42848, 0, 2.45674, 0, 2.42848, 0, -0.371523, 477.479, -0.31947, 471.957)
+transform = Transform3D(-0.371523, -2.41679, 0.238075, 0, -0.240845, -2.4449, 2.42848, -0.369734, 0.036422, 477.479, -0.171482, 471.957)
 
 [node name="Rocks" type="Node3D" parent="."]
 
@@ -313,7 +314,7 @@ transform = Transform3D(14.5413, -19.4603, -12.4923, 2.97571, 16.2088, -21.786, 
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_csild")
+modifier_stack = SubResource("Resource_ohyei")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
