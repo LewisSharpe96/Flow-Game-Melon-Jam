@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqvugdty4badd"]
+
+[ext_resource type="PlaneMesh" uid="uid://b1wrbh2vq16w8" path="res://assets/3d/_Particles/SpruceParticle/SpruceParticle.tres" id="1_yib72"]
+
+[sub_resource type="Curve" id="Curve_7go0t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qfsqy"]
+curve = SubResource("Curve_7go0t")
+
+[sub_resource type="Curve" id="Curve_ttb2p"]
+max_value = 100.0
+_data = [Vector2(0, 40.9788), 0.0, 0.0, 0, 0, Vector2(0.359281, 29.4811), -31.4404, -31.4404, 0, 0, Vector2(1, 16.4505), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_44r82"]
+curve = SubResource("Curve_ttb2p")
+
+[sub_resource type="Curve" id="Curve_u8k4n"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.011976, 1), 0.0, 0.0, 0, 0, Vector2(0.928144, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_jxdbt"]
+curve = SubResource("Curve_u8k4n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kfgty"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 27.63
+angle_min = -90.0
+angular_velocity_min = 50.0
+angular_velocity_max = 50.0
+radial_velocity_max = 0.5
+gravity = Vector3(0, -0.5, 0)
+damping_curve = SubResource("CurveTexture_44r82")
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_jxdbt")
+alpha_curve = SubResource("CurveTexture_qfsqy")
+turbulence_enabled = true
+turbulence_noise_scale = 5.0
+turbulence_noise_speed = Vector3(0, -0.2, 0)
+collision_mode = 2
+
+[sub_resource type="Skin" id="Skin_v7153"]
+
+[node name="FallingSpruce" type="GPUParticles3D"]
+amount = 25
+lifetime = 10.0
+explosiveness = 0.07
+randomness = 0.57
+visibility_aabb = AABB(-8.62057, -6.08186, -8.13881, 17.2411, 12.1637, 16.2776)
+process_material = SubResource("ParticleProcessMaterial_kfgty")
+draw_pass_1 = ExtResource("1_yib72")
+draw_skin = SubResource("Skin_v7153")
