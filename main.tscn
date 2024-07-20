@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=37 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -9,6 +9,15 @@
 [ext_resource type="Terrain3DStorage" uid="uid://oilcgiqk1u25" path="res://Terrain/terrain_3d_storage.res" id="7_ialyn"]
 [ext_resource type="Terrain3DMaterial" uid="uid://c61y42aihwftx" path="res://Terrain/terrain_3d_material.tres" id="8_k7t7f"]
 [ext_resource type="Terrain3DAssets" uid="uid://bhn1bpsu0ewc5" path="res://Terrain/terrain_3d_assets.tres" id="9_qix5j"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="10_gw5oq"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="11_t2pdq"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="12_qnmrm"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="13_weldj"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="14_cy0lo"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="15_baqw0"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="16_el708"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="17_rsl4p"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="18_la8nv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
 panorama = ExtResource("1_cyo0m")
@@ -90,6 +99,62 @@ subdivide_depth = 500
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
 size = Vector3(44.2256, 6.08447, 1)
 
+[sub_resource type="Resource" id="Resource_us7ai"]
+script = ExtResource("12_qnmrm")
+amount = 80000
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_gblmx"]
+script = ExtResource("13_weldj")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(20, 360, 20)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_82ijt"]
+script = ExtResource("14_cy0lo")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_3bja2"]
+script = ExtResource("15_baqw0")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_vmg6i"]
+script = ExtResource("11_t2pdq")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_us7ai"), SubResource("Resource_gblmx"), SubResource("Resource_82ijt"), SubResource("Resource_3bja2")])
+
+[sub_resource type="Resource" id="Resource_7t12f"]
+script = ExtResource("18_la8nv")
+size = Vector3(63.5952, 10, 65.3886)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_eu26w")
 
@@ -103,27 +168,28 @@ transform = Transform3D(-0.940098, 0.085929, -0.329898, -0.23722, -0.859886, 0.4
 shadow_enabled = true
 
 [node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.077, 0, 485.031)
 mesh = SubResource("PlaneMesh_0xwda")
 script = ExtResource("3_t5r3v")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, -2.98774e-08, 0.422871, 0.90619, 8.21589e-08, 0.90619, -0.422871, 0, 21.648, -15.8773)
+transform = Transform3D(-1, 6.18173e-08, -6.18172e-08, -2.98774e-08, 0.422871, 0.90619, 8.21589e-08, 0.90619, -0.422871, 486.077, 21.648, 469.153)
 
 [node name="Boat" parent="." instance=ExtResource("4_7remr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99501, 27.0155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.077, 0.99501, 512.046)
 
 [node name="BoatSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07537, 25.4469)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.077, 1.07537, 510.477)
 
 [node name="RespawnArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.3641)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.077, 0, 460.666)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04562, 0)
 shape = SubResource("BoxShape3D_7gxkk")
 
 [node name="PetalSpawner" parent="." instance=ExtResource("6_xqw8r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0859815, 23.5843, 7.82105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.163, 23.5843, 492.852)
 extra_cull_margin = 100.0
 amount = 60
 
@@ -131,3 +197,21 @@ amount = 60
 storage = ExtResource("7_ialyn")
 material = ExtResource("8_k7t7f")
 assets = ExtResource("9_qix5j")
+debug_show_collision = true
+
+[node name="Foliage" type="Node3D" parent="."]
+
+[node name="ProtonScatter" type="Node3D" parent="Foliage"]
+script = ExtResource("10_gw5oq")
+modifier_stack = SubResource("Resource_vmg6i")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="Foliage/ProtonScatter"]
+script = ExtResource("16_el708")
+path = "res://addons/proton_scatter/demos/assets/grass_2.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="Foliage/ProtonScatter"]
+transform = Transform3D(0.803441, 0, -0.595384, 0, 1, 0, 0.595384, 0, 0.803441, 161.764, 3.69457, 115.02)
+script = ExtResource("17_rsl4p")
+shape = SubResource("Resource_7t12f")
