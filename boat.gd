@@ -12,6 +12,8 @@ extends RigidBody3D
 
 @onready var probes = $ProbeContainer.get_children()
 
+@onready var boat_collision_area = $Area3D
+
 var submerged := false
 
 # Called when the node enters the scene tree for the first time.
@@ -40,3 +42,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	if submerged:
 		state.linear_velocity *=  1 - water_drag
 		state.angular_velocity *= 1 - water_angular_drag
+
+
+func _on_area_3d_body_entered(body):
+	if body == $"../Terrain3D":
+		print("Failed")
