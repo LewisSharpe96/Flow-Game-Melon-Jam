@@ -7,3 +7,8 @@ var boat
 func _ready():
 	boat_spawn = $BoatSpawn
 	boat = $Boat
+
+
+func _on_end_area_body_entered(body):
+	if body == boat:
+		print("You Win")
