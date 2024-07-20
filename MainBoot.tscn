@@ -1,8 +1,9 @@
-[gd_scene load_steps=57 format=3 uid="uid://0po8nagtynp8"]
+[gd_scene load_steps=59 format=3 uid="uid://0po8nagtynp8"]
 
 [ext_resource type="FontFile" uid="uid://cjf6s6s5s5sga" path="res://Assets/Fonts/AmazonPalafita-Regular.ttf" id="1_f67ua"]
 [ext_resource type="Script" path="res://MenuButtons.gd" id="1_j681v"]
 [ext_resource type="Environment" uid="uid://bco5a3idx6lto" path="res://MainBootEnv.tres" id="2_x6sca"]
+[ext_resource type="Texture2D" uid="uid://bwpjhyoq1x1qd" path="res://Assets/Wolf.png" id="3_5qm8c"]
 [ext_resource type="Shader" path="res://assets/shaders/water.gdshader" id="3_mikon"]
 [ext_resource type="Script" path="res://Water.gd" id="4_swec2"]
 [ext_resource type="PackedScene" uid="uid://dl567efhbp7vv" path="res://boat.tscn" id="5_ntfnm"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2e1u0ydq30ql" path="res://Assets/Particles/falling_leaves.tscn" id="6_ngaut"]
 [ext_resource type="Terrain3DStorage" uid="uid://oilcgiqk1u25" path="res://Terrain/terrain_3d_storage.res" id="7_l8up4"]
 [ext_resource type="Terrain3DMaterial" uid="uid://c61y42aihwftx" path="res://Terrain/terrain_3d_material.tres" id="8_1wwe0"]
+[ext_resource type="PackedScene" uid="uid://cc8nbhe32nka1" path="res://Assets/Dock/dock.tscn" id="8_lh7t4"]
 [ext_resource type="Terrain3DAssets" uid="uid://bhn1bpsu0ewc5" path="res://Terrain/terrain_3d_assets.tres" id="9_os0kr"]
 [ext_resource type="PackedScene" uid="uid://cvir2r6ve8ht6" path="res://Assets/Log/log.tscn" id="10_6aa0j"]
 [ext_resource type="PackedScene" uid="uid://dv4xuo5wbvqm6" path="res://Assets/Rocks/small_rock.tscn" id="11_jvdph"]
@@ -91,6 +93,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_sh70a"]
 resource_name = "Splash"
@@ -154,6 +168,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2dydk"]
@@ -250,7 +276,7 @@ dof_blur_far_enabled = true
 dof_blur_far_distance = 7.72
 dof_blur_amount = 0.03
 
-[sub_resource type="Resource" id="Resource_i68m1"]
+[sub_resource type="Resource" id="Resource_m2wp4"]
 script = ExtResource("14_4eimm")
 amount = 30000
 enabled = true
@@ -259,7 +285,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_hqllj"]
+[sub_resource type="Resource" id="Resource_61udj"]
 script = ExtResource("15_sdltv")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -270,7 +296,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_w30d0"]
+[sub_resource type="Resource" id="Resource_efdvu"]
 script = ExtResource("16_0b3bd")
 iterations = 3
 offset_step = 0.2
@@ -282,7 +308,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_7j2ug"]
+[sub_resource type="Resource" id="Resource_pswvt"]
 script = ExtResource("17_tg2d8")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -298,7 +324,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4h268"]
+[sub_resource type="Resource" id="Resource_j5yxw"]
 script = ExtResource("18_6l1sk")
 operation = 1
 scale = Vector3(0.4, 1, 1)
@@ -308,9 +334,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_nd06j"]
+[sub_resource type="Resource" id="Resource_4kbuw"]
 script = ExtResource("13_8vte0")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_i68m1"), SubResource("Resource_hqllj"), SubResource("Resource_w30d0"), SubResource("Resource_7j2ug"), SubResource("Resource_4h268")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_m2wp4"), SubResource("Resource_61udj"), SubResource("Resource_efdvu"), SubResource("Resource_pswvt"), SubResource("Resource_j5yxw")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("22_vvy47")
@@ -415,6 +441,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 396.0
+offset_top = 18.0
+offset_right = 3411.0
+offset_bottom = 3637.0
+texture = ExtResource("3_5qm8c")
+
 [node name="FlowBlack" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -476,6 +509,9 @@ collision_layer = 2
 script = ExtResource("5_ykme7")
 float_force = 1.0
 water_angular_drag = 0.05
+
+[node name="Dock" parent="." instance=ExtResource("8_lh7t4")]
+transform = Transform3D(-1.23487, 0, -0.158432, 0, 1.24499, 0, 0.158432, 0, -1.23487, 492.297, 1.98166, 479.434)
 
 [node name="PetalSpawner" parent="." instance=ExtResource("6_ngaut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.163, 23.5843, 492.852)
@@ -555,7 +591,7 @@ transform = Transform3D(14.5413, -19.4603, -12.4923, 2.97571, 16.2088, -21.786, 
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("12_2hxa8")
-modifier_stack = SubResource("Resource_nd06j")
+modifier_stack = SubResource("Resource_4kbuw")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
