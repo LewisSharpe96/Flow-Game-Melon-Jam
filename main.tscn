@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=22 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Water.gd" id="3_t5r3v"]
 [ext_resource type="PackedScene" uid="uid://dl567efhbp7vv" path="res://boat.tscn" id="4_7remr"]
 [ext_resource type="PackedScene" uid="uid://c2e1u0ydq30ql" path="res://Assets/Particles/falling_leaves.tscn" id="6_xqw8r"]
+[ext_resource type="Terrain3DStorage" uid="uid://oilcgiqk1u25" path="res://Terrain/terrain_3d_storage.res" id="7_ialyn"]
+[ext_resource type="Terrain3DMaterial" uid="uid://c61y42aihwftx" path="res://Terrain/terrain_3d_material.tres" id="8_k7t7f"]
+[ext_resource type="Terrain3DAssets" uid="uid://bhn1bpsu0ewc5" path="res://Terrain/terrain_3d_assets.tres" id="9_qix5j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
 panorama = ExtResource("1_cyo0m")
@@ -70,7 +73,7 @@ shader_parameter/noise_scale = 15.0
 shader_parameter/height_scale = 1.25
 shader_parameter/beers_law = 0.089
 shader_parameter/depth_offset = -0.75
-shader_parameter/edge_scale = 1.5
+shader_parameter/edge_scale = 0.1
 shader_parameter/near = 0.5
 shader_parameter/far = 100.0
 shader_parameter/edge_color = Color(0.745567, 0.999145, 1, 1)
@@ -123,3 +126,8 @@ shape = SubResource("BoxShape3D_7gxkk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0859815, 23.5843, 7.82105)
 extra_cull_margin = 100.0
 amount = 60
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("7_ialyn")
+material = ExtResource("8_k7t7f")
+assets = ExtResource("9_qix5j")
