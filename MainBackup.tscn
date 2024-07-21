@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=101 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -11,6 +11,7 @@
 [ext_resource type="Terrain3DStorage" uid="uid://oilcgiqk1u25" path="res://Terrain/terrain_3d_storage.res" id="7_ialyn"]
 [ext_resource type="Terrain3DMaterial" uid="uid://c61y42aihwftx" path="res://Terrain/terrain_3d_material.tres" id="8_k7t7f"]
 [ext_resource type="Terrain3DAssets" uid="uid://bhn1bpsu0ewc5" path="res://Terrain/terrain_3d_assets.tres" id="9_qix5j"]
+[ext_resource type="PackedScene" uid="uid://cfhrli2kb7sp1" path="res://FishParticles.tscn" id="10_8exky"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="10_gw5oq"]
 [ext_resource type="PackedScene" uid="uid://cvir2r6ve8ht6" path="res://Assets/Log/log.tscn" id="10_pqxwv"]
 [ext_resource type="PackedScene" uid="uid://dv4xuo5wbvqm6" path="res://Assets/Rocks/small_rock.tscn" id="10_qtujl"]
@@ -30,6 +31,7 @@
 [ext_resource type="Material" uid="uid://4mwcfm8j3vnd" path="res://Terrain/Foliage/Shaders/GrassTest.tres" id="20_p0nku"]
 [ext_resource type="AudioStream" uid="uid://dgxeqnllblsu" path="res://Assets/Audio/wind_audio.mp3" id="21_l2ovq"]
 [ext_resource type="PackedScene" uid="uid://cc8nbhe32nka1" path="res://Assets/Dock/dock.tscn" id="25_toag1"]
+[ext_resource type="Script" path="res://Audio.gd" id="29_wpx3e"]
 [ext_resource type="PackedScene" uid="uid://cg1uskieqcoou" path="res://CollectablePettle.tscn" id="30_5iuxo"]
 [ext_resource type="Texture2D" uid="uid://ccyijlmx520it" path="res://Assets/MossTop.png" id="30_ux6j1"]
 [ext_resource type="Texture2D" uid="uid://2d52gxydamgd" path="res://Assets/Footprint/Albedo.png" id="31_t63rf"]
@@ -42,6 +44,8 @@
 [ext_resource type="PackedScene" uid="uid://dapjs8rh6wj64" path="res://Assets/CookingPan/cooking_pan.tscn" id="39_233to"]
 [ext_resource type="PackedScene" uid="uid://c0kpdr0foyfr3" path="res://Assets/Chair/chair.tscn" id="40_bg2uf"]
 [ext_resource type="PackedScene" uid="uid://y4ue131e4rfn" path="res://FireFly.tscn" id="41_sdpyw"]
+[ext_resource type="Texture2D" uid="uid://cblc2globxl47" path="res://Assets/Particles/Leaf.png" id="45_5swa8"]
+[ext_resource type="PackedScene" uid="uid://tql8k1en1d3d" path="res://Assets/Pipe/Pipe.tscn" id="46_vt1tq"]
 
 [sub_resource type="Animation" id="Animation_jpjqk"]
 resource_name = "Daylight Anim"
@@ -607,7 +611,7 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_ri13b"]
+[sub_resource type="Resource" id="Resource_j70bf"]
 script = ExtResource("12_qnmrm")
 amount = 6000
 enabled = true
@@ -616,7 +620,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_jqsxu"]
+[sub_resource type="Resource" id="Resource_jlkai"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -627,7 +631,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_5qywo"]
+[sub_resource type="Resource" id="Resource_13n6m"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -639,7 +643,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ks7cr"]
+[sub_resource type="Resource" id="Resource_5byji"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -655,7 +659,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_13c0h"]
+[sub_resource type="Resource" id="Resource_iy15a"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(1.2, 3, 3)
@@ -665,9 +669,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_360ye"]
+[sub_resource type="Resource" id="Resource_sssbk"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_ri13b"), SubResource("Resource_jqsxu"), SubResource("Resource_5qywo"), SubResource("Resource_ks7cr"), SubResource("Resource_13c0h")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_j70bf"), SubResource("Resource_jlkai"), SubResource("Resource_13n6m"), SubResource("Resource_5byji"), SubResource("Resource_iy15a")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -816,6 +820,32 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_1koyd")
 
+[sub_resource type="Curve3D" id="Curve3D_mcy2r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 497.182, 0, 691.077, 0, 0, 0, 0, 0, 0, 513.578, 0, 692.266, 0, 0, 0, 0, 0, 0, 527.414, 0, 697.645, 0, 0, 0, 0, 0, 0, 524.983, 0, 706.878, 0, 0, 0, 0, 0, 0, 510.216, 0, 703.8, 0, 0, 0, 0, 0, 0, 495.966, 0, 702.714),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Resource" id="Resource_q8vrp"]
+script = ExtResource("19_wme33")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_mcy2r")
+
+[sub_resource type="Curve3D" id="Curve3D_82udx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 475.385, 0, 707.72, 0, 0, 0, 0, 0, 0, 473.826, 0, 731.112, 0, 0, 0, 0, 0, 0, 502.51, 0, 729.92, 0, 0, 0, 0, 0, 0, 499.692, 0, 704.996),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Resource" id="Resource_ygg5q"]
+script = ExtResource("19_wme33")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_82udx")
+
 [sub_resource type="Animation" id="Animation_b042l"]
 length = 0.001
 tracks/0/type = "value"
@@ -928,9 +958,14 @@ transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 6.9509)
 transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 13.1017)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("boat_spawn") instance=ExtResource("4_7remr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.06, 0.994991, 695.495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.248, 0.994991, 708.226)
 collision_layer = 2
 boat_spawn = NodePath("../BoatSpawn")
+
+[node name="FishParticle" parent="Boat" instance=ExtResource("10_8exky")]
+transform = Transform3D(12.9633, 0, 0, 0, 1, 0, 0, 2.98023e-08, 5.85901, 0.0423889, 0.0649585, -10.8185)
+layers = 2
+amount = 50
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Boat"]
 transform = Transform3D(1, 0, 0, 0, -0.579381, 0.815057, 0, -0.815057, -0.579381, 0, 0, 0)
@@ -947,7 +982,7 @@ attributes = SubResource("CameraAttributesPractical_qjlej")
 current = true
 
 [node name="BoatSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.06, 1.07535, 693.926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.248, 1.07535, 706.657)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("7_ialyn")
@@ -1025,7 +1060,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_360ye")
+modifier_stack = SubResource("Resource_sssbk")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -1089,6 +1124,17 @@ script = ExtResource("17_rsl4p")
 negative = true
 shape = SubResource("Resource_n7nvy")
 
+[node name="ScatterShape13" type="Node3D" parent="Foliage/ProtonScatter2"]
+script = ExtResource("17_rsl4p")
+negative = true
+shape = SubResource("Resource_q8vrp")
+
+[node name="ScatterShape14" type="Node3D" parent="Foliage/ProtonScatter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+script = ExtResource("17_rsl4p")
+negative = true
+shape = SubResource("Resource_ygg5q")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Foliage"]
 libraries = {
 "": SubResource("AnimationLibrary_tgjxq")
@@ -1097,6 +1143,9 @@ libraries = {
 [node name="Dock" parent="Foliage" instance=ExtResource("25_toag1")]
 transform = Transform3D(-9.56283e-08, 0, -2.18772, 0, 2.18772, 0, 2.18772, 0, -9.56283e-08, 469.734, 2.59187, 251.314)
 
+[node name="Dock4" parent="Foliage" instance=ExtResource("25_toag1")]
+transform = Transform3D(-2.18772, 0, 1.91257e-07, 0, 2.18772, 0, -1.91257e-07, 0, -2.18772, 502.881, 2.59187, 698.971)
+
 [node name="Dock2" parent="Foliage" instance=ExtResource("25_toag1")]
 transform = Transform3D(2.18772, 0, -2.84217e-14, 0, 2.18772, 0, 2.84217e-14, 0, 2.18772, 488.948, 3.41651, 307.583)
 
@@ -1104,6 +1153,7 @@ transform = Transform3D(2.18772, 0, -2.84217e-14, 0, 2.18772, 0, 2.84217e-14, 0,
 transform = Transform3D(2.18772, 0, -2.84217e-14, 0, 2.18772, 0, 2.84217e-14, 0, 2.18772, 438.449, 3.41651, 308.851)
 
 [node name="Audio" type="Node" parent="."]
+script = ExtResource("29_wpx3e")
 
 [node name="BackgroundNoise" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("19_ote1p")
@@ -1119,8 +1169,7 @@ mix_target = 1
 
 [node name="Wind" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("21_l2ovq")
-volume_db = -6.442
-mix_target = 1
+volume_db = -80.0
 bus = &"SFX"
 
 [node name="Decals" type="Node3D" parent="Audio"]
@@ -1254,3 +1303,12 @@ transform = Transform3D(-8.55152, -0.989993, -9.85411, -1.02109, 13.038, -0.4237
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 485.748, 3.05176e-05, 471.299)
 size = Vector3(156.286, 81.6544, 676.647)
 material = SubResource("FogMaterial_w45m6")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 509.53, 0.960799, 524.11)
+texture_albedo = ExtResource("45_5swa8")
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+albedo_mix = 0.61
+
+[node name="Pipe" parent="." instance=ExtResource("46_vt1tq")]
+transform = Transform3D(-7.25022, 0, 6.33834e-07, 0, 7.25022, 0, -6.33834e-07, 0, -7.25022, 486.556, 3.39278, 725.43)

@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfhrli2kb7sp1"]
+
+[ext_resource type="Texture2D" uid="uid://doyrtatkmu2q6" path="res://Assets/Particles/Fish.png" id="1_wfnkl"]
+[ext_resource type="Script" path="res://Assets/Particles/FlowingFish.gd" id="2_g06k4"]
+
+[sub_resource type="Curve" id="Curve_15j01"]
+max_value = 0.5
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.154472, 0.488458), 0.0, 0.0, 0, 0, Vector2(0.336043, 0.024659), 0.0, 0.0, 0, 0, Vector2(0.485095, 0.467996), 0.0, 0.0, 0, 0, Vector2(0.615176, 0), 0.0, 0.0, 0, 0, Vector2(0.756097, 0.481637), 0.0, 0.0, 0, 0, Vector2(0.953929, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_tta02"]
+curve_z = SubResource("Curve_15j01")
+
+[sub_resource type="Curve" id="Curve_6u3kx"]
+_data = [Vector2(0, 0), 0.0, 0.0114728, 0, 0, Vector2(0.260163, 0.795383), 1.38857, 1.38857, 0, 0, Vector2(0.699187, 0.897691), -1.25839, -1.25839, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_3j0j7"]
+curve = SubResource("Curve_6u3kx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gsgva"]
+emission_shape_scale = Vector3(0.8, 0, 0.8)
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -90.0
+angle_max = 90.0
+spread = 43.182
+directional_velocity_min = 0.0
+directional_velocity_max = 5.0
+directional_velocity_curve = SubResource("CurveXYZTexture_tta02")
+gravity = Vector3(0, 0, -0.1)
+scale_min = 0.5
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_3j0j7")
+turbulence_noise_strength = 5.41
+turbulence_noise_scale = 4.373
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44e7b"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.132721, 0.203358, 0.332711, 1)
+albedo_texture = ExtResource("1_wfnkl")
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_1hj5x"]
+material = SubResource("StandardMaterial3D_44e7b")
+size = Vector2(-1, -1)
+orientation = 1
+
+[node name="Node3D" type="GPUParticles3D"]
+transform = Transform3D(12.9633, 0, 0, 0, 1, 0, 0, 0, 5.85901, 0.0423946, 0.0432019, -0.0070076)
+cast_shadow = 0
+amount = 20
+lifetime = 15.0
+preprocess = 20.0
+randomness = 1.0
+visibility_aabb = AABB(-1.00117, -0.0481349, -2.10181, 2.00236, 0.0962698, 4.20362)
+process_material = SubResource("ParticleProcessMaterial_gsgva")
+draw_pass_1 = SubResource("QuadMesh_1hj5x")
+script = ExtResource("2_g06k4")
