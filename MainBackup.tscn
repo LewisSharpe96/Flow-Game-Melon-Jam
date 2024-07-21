@@ -262,6 +262,18 @@ tracks/17/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Environment/DirectionalLight3D:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.488311, -0.272557, -2.75693), Vector3(0.0585813, -0.240452, -2.90167)]
+}
 
 [sub_resource type="Animation" id="Animation_5qo1f"]
 length = 0.001
@@ -480,6 +492,18 @@ tracks/17/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Environment/DirectionalLight3D:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0585813, -0.240452, -2.90167)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e8o7y"]
@@ -854,7 +878,7 @@ autoplay = "Daylight Anim"
 environment = SubResource("Environment_w5hlc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-0.940098, 0.244334, -0.237733, -0.23722, -0.96969, -0.0585479, -0.244833, 0.00135434, 0.969564, 0, 0, 0)
+transform = Transform3D(-0.940098, 0.244334, -0.237733, -0.23722, -0.96969, -0.0585478, -0.244833, 0.00135442, 0.969564, 0, 0, 0)
 light_color = Color(0.935604, 0.590774, 0.252402, 1)
 light_energy = 0.327
 shadow_enabled = true
@@ -921,7 +945,6 @@ extra_cull_margin = 100.0
 transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, -5.94132e-08, -0.999271, -0.0381612, -6.41312e-08, -0.0381612, 0.999271, 0, 0.0908508, 22.3548)
 attributes = SubResource("CameraAttributesPractical_qjlej")
 current = true
-fov = 30.0
 
 [node name="BoatSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.06, 1.07535, 693.926)
@@ -1096,8 +1119,9 @@ mix_target = 1
 
 [node name="Wind" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("21_l2ovq")
-volume_db = -35.0
+volume_db = -6.442
 mix_target = 1
+bus = &"SFX"
 
 [node name="Decals" type="Node3D" parent="Audio"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 476.616, 2.5447, 389.273)
