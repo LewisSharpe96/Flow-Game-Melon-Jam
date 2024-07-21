@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=65 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -29,6 +29,7 @@
 [ext_resource type="Material" uid="uid://4mwcfm8j3vnd" path="res://Terrain/Foliage/Shaders/GrassTest.tres" id="20_p0nku"]
 [ext_resource type="AudioStream" uid="uid://dgxeqnllblsu" path="res://Assets/Audio/wind_audio.mp3" id="21_l2ovq"]
 [ext_resource type="PackedScene" uid="uid://cc8nbhe32nka1" path="res://Assets/Dock/dock.tscn" id="25_toag1"]
+[ext_resource type="PackedScene" uid="uid://cg1uskieqcoou" path="res://CollectablePettle.tscn" id="30_5iuxo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
 panorama = ExtResource("1_cyo0m")
@@ -122,27 +123,27 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_81sk0"]
+[sub_resource type="Resource" id="Resource_42y0n"]
 script = ExtResource("12_qnmrm")
-amount = 20000
+amount = 6000
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_f3cxf"]
+[sub_resource type="Resource" id="Resource_kj5sx"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
-scale = Vector3(0.1, 0.25, 0.1)
+scale = Vector3(0.1, 0.5, 0.1)
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_bqust"]
+[sub_resource type="Resource" id="Resource_vxi7f"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -154,7 +155,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_vooal"]
+[sub_resource type="Resource" id="Resource_e1rb6"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -170,19 +171,19 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_uc1ea"]
+[sub_resource type="Resource" id="Resource_yu33q"]
 script = ExtResource("16_2m28k")
 operation = 1
-scale = Vector3(0.4, 1, 1)
+scale = Vector3(1.2, 3, 3)
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_1ja82"]
+[sub_resource type="Resource" id="Resource_6rbow"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_81sk0"), SubResource("Resource_f3cxf"), SubResource("Resource_bqust"), SubResource("Resource_vooal"), SubResource("Resource_uc1ea")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_42y0n"), SubResource("Resource_kj5sx"), SubResource("Resource_vxi7f"), SubResource("Resource_e1rb6"), SubResource("Resource_yu33q")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -418,7 +419,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_1ja82")
+modifier_stack = SubResource("Resource_6rbow")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -428,7 +429,7 @@ override_material = ExtResource("20_p0nku")
 path = "res://Terrain/Foliage/grass_triangle.tscn"
 
 [node name="ScatterShape" type="Node3D" parent="Foliage/ProtonScatter2"]
-transform = Transform3D(1.45909, 0, -0.0171848, 0, 1, 0, -0.115832, 0, -0.216469, 485.704, 1.04636, 496.552)
+transform = Transform3D(1.45909, 0, -0.0171848, 0, 1, 0, -0.115832, 0, -0.216469, 485.704, 1.154, 496.552)
 script = ExtResource("17_rsl4p")
 shape = SubResource("Resource_7oaff")
 
@@ -492,3 +493,15 @@ mix_target = 1
 stream = ExtResource("21_l2ovq")
 volume_db = -35.0
 mix_target = 1
+
+[node name="Pettle" parent="." instance=ExtResource("30_5iuxo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Pettle2" parent="." instance=ExtResource("30_5iuxo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Pettle3" parent="." instance=ExtResource("30_5iuxo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Pettle4" parent="." instance=ExtResource("30_5iuxo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

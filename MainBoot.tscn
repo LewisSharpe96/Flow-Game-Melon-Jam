@@ -105,10 +105,22 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(481.429, 1.38937, 486.018)]
+}
 
 [sub_resource type="Animation" id="Animation_sh70a"]
 resource_name = "Splash"
-length = 7.0
+length = 7.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -180,6 +192,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5.2, 7.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(481.429, 1.389, 485), Vector3(481.429, 1.38937, 486.018)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2dydk"]
@@ -276,16 +300,16 @@ dof_blur_far_enabled = true
 dof_blur_far_distance = 7.72
 dof_blur_amount = 0.03
 
-[sub_resource type="Resource" id="Resource_dl17i"]
+[sub_resource type="Resource" id="Resource_swlkl"]
 script = ExtResource("14_4eimm")
-amount = 30000
+amount = 1500
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_p667k"]
+[sub_resource type="Resource" id="Resource_cqdw5"]
 script = ExtResource("15_sdltv")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -296,7 +320,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_4nl2x"]
+[sub_resource type="Resource" id="Resource_v8qwn"]
 script = ExtResource("16_0b3bd")
 iterations = 3
 offset_step = 0.2
@@ -308,7 +332,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ectur"]
+[sub_resource type="Resource" id="Resource_i347p"]
 script = ExtResource("17_tg2d8")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -324,23 +348,23 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_28k53"]
+[sub_resource type="Resource" id="Resource_af6d3"]
 script = ExtResource("18_6l1sk")
 operation = 1
-scale = Vector3(0.4, 1, 1)
+scale = Vector3(1.2, 3, 3)
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_o3y7g"]
+[sub_resource type="Resource" id="Resource_ey28f"]
 script = ExtResource("13_8vte0")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_dl17i"), SubResource("Resource_p667k"), SubResource("Resource_4nl2x"), SubResource("Resource_ectur"), SubResource("Resource_28k53")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_swlkl"), SubResource("Resource_cqdw5"), SubResource("Resource_v8qwn"), SubResource("Resource_i347p"), SubResource("Resource_af6d3")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("22_vvy47")
-size = Vector3(70.511, 10, 254.522)
+size = Vector3(34.7003, 10, 254.522)
 
 [sub_resource type="Curve3D" id="Curve3D_pehww"]
 _data = {
@@ -591,7 +615,7 @@ transform = Transform3D(14.5413, -19.4603, -12.4923, 2.97571, 16.2088, -21.786, 
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("12_2hxa8")
-modifier_stack = SubResource("Resource_o3y7g")
+modifier_stack = SubResource("Resource_ey28f")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -601,7 +625,7 @@ override_material = ExtResource("20_23ff5")
 path = "res://Terrain/Foliage/grass_triangle.tscn"
 
 [node name="ScatterShape" type="Node3D" parent="Foliage/ProtonScatter2"]
-transform = Transform3D(1.45909, 0, -0.0171848, 0, 1, 0, -0.115832, 0, -0.216469, 485.704, 1.20502, 487.768)
+transform = Transform3D(1.45909, 0, -0.0171848, 0, 1, 0, -0.115832, 0, -0.216469, 509.654, 0.957973, 487.768)
 script = ExtResource("21_vmnco")
 shape = SubResource("Resource_7oaff")
 
