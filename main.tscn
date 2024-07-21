@@ -104,7 +104,7 @@ subdivide_depth = 500
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gxkk"]
 size = Vector3(44.2256, 6.08447, 1)
 
-[sub_resource type="Resource" id="Resource_yvq6b"]
+[sub_resource type="Resource" id="Resource_d8qs2"]
 script = ExtResource("12_qnmrm")
 amount = 30000
 enabled = true
@@ -113,7 +113,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_bm0cp"]
+[sub_resource type="Resource" id="Resource_8wjqw"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -124,7 +124,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_bqsua"]
+[sub_resource type="Resource" id="Resource_giidx"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -136,7 +136,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_fk5k7"]
+[sub_resource type="Resource" id="Resource_v8hs7"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -152,7 +152,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_x6via"]
+[sub_resource type="Resource" id="Resource_x0ohm"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(0.4, 1, 1)
@@ -162,9 +162,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_yn3pb"]
+[sub_resource type="Resource" id="Resource_uqnik"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_yvq6b"), SubResource("Resource_bm0cp"), SubResource("Resource_bqsua"), SubResource("Resource_fk5k7"), SubResource("Resource_x6via")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_d8qs2"), SubResource("Resource_8wjqw"), SubResource("Resource_giidx"), SubResource("Resource_v8hs7"), SubResource("Resource_x0ohm")])
 
 [sub_resource type="Resource" id="Resource_o4jii"]
 script = ExtResource("18_la8nv")
@@ -238,7 +238,7 @@ debug_show_collision = true
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_yn3pb")
+modifier_stack = SubResource("Resource_uqnik")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
