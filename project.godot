@@ -10,8 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Buoyancy YT"
-run/main_scene="res://main.tscn"
+config/name="Flow"
+config/description="Yas"
+config/version="0.0.1"
+run/main_scene="res://MainBoot.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

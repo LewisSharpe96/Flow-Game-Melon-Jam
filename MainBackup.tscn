@@ -672,7 +672,7 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_r0rte"]
+[sub_resource type="Resource" id="Resource_8dkoo"]
 script = ExtResource("12_qnmrm")
 amount = 6000
 enabled = true
@@ -681,7 +681,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_8u732"]
+[sub_resource type="Resource" id="Resource_rn357"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -692,7 +692,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_2naif"]
+[sub_resource type="Resource" id="Resource_pqbnp"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -704,7 +704,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_d8ixh"]
+[sub_resource type="Resource" id="Resource_mq8nb"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -720,7 +720,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_5pqg0"]
+[sub_resource type="Resource" id="Resource_n6xkg"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(1.2, 3, 3)
@@ -730,9 +730,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_n2n8s"]
+[sub_resource type="Resource" id="Resource_ghgt6"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_r0rte"), SubResource("Resource_8u732"), SubResource("Resource_2naif"), SubResource("Resource_d8ixh"), SubResource("Resource_5pqg0")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8dkoo"), SubResource("Resource_rn357"), SubResource("Resource_pqbnp"), SubResource("Resource_mq8nb"), SubResource("Resource_n6xkg")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -1265,7 +1265,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_n2n8s")
+modifier_stack = SubResource("Resource_ghgt6")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -1561,16 +1561,16 @@ albedo_mix = 0.61
 [node name="Pipe" parent="." instance=ExtResource("46_vt1tq")]
 transform = Transform3D(-7.25022, 0, 6.33834e-07, 0, 7.25022, 0, -6.33834e-07, 0, -7.25022, 486.556, 3.39278, 725.43)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="EndArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.811, -1.52588e-05, 261.052)
-collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830536, 0, 0.859039)
 shape = SubResource("BoxShape3D_smgt7")
 
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="Boat" method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="Area3D" to="Boat" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="EndArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="EndArea" to="." method="_on_end_area_body_entered"]
+[connection signal="body_entered" from="EndArea" to="Boat" method="_on_area_3d_body_entered"]

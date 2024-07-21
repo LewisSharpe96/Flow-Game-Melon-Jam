@@ -19,6 +19,9 @@ func _process(delta):
 		get_tree().quit()
 
 func _on_area_3d_body_entered(body):
+	pass
+	
+func _on_end_area_body_entered(body):
 	anim_player.play("Fade")
 	print("end")
 	end = true
@@ -26,3 +29,6 @@ func _on_area_3d_body_entered(body):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Fade" && end:
 		get_tree().change_scene_to_file("res://EndingScene.tscn")
+
+
+
