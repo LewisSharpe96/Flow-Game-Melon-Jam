@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=105 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -43,9 +43,74 @@
 [ext_resource type="PackedScene" uid="uid://dx6nrja63cmmv" path="res://Assets/MeshFence/mesh_fence.tscn" id="38_djj17"]
 [ext_resource type="PackedScene" uid="uid://dapjs8rh6wj64" path="res://Assets/CookingPan/cooking_pan.tscn" id="39_233to"]
 [ext_resource type="PackedScene" uid="uid://c0kpdr0foyfr3" path="res://Assets/Chair/chair.tscn" id="40_bg2uf"]
-[ext_resource type="PackedScene" path="res://FireFly.tscn" id="41_sdpyw"]
+[ext_resource type="PackedScene" uid="uid://y4ue131e4rfn" path="res://FireFly.tscn" id="41_sdpyw"]
 [ext_resource type="Texture2D" uid="uid://cblc2globxl47" path="res://Assets/Particles/Leaf.png" id="45_5swa8"]
 [ext_resource type="PackedScene" uid="uid://tql8k1en1d3d" path="res://Assets/Pipe/Pipe.tscn" id="46_vt1tq"]
+
+[sub_resource type="Animation" id="Animation_4gp8s"]
+resource_name = "Fade"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eu1qs"]
+resource_name = "EndFade"
+
+[sub_resource type="Animation" id="Animation_vahst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_srgoo"]
+_data = {
+"EndFade": SubResource("Animation_eu1qs"),
+"Fade": SubResource("Animation_4gp8s"),
+"RESET": SubResource("Animation_vahst")
+}
 
 [sub_resource type="Animation" id="Animation_jpjqk"]
 resource_name = "Daylight Anim"
@@ -611,7 +676,7 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_hx0ak"]
+[sub_resource type="Resource" id="Resource_20dfd"]
 script = ExtResource("12_qnmrm")
 amount = 6000
 enabled = true
@@ -620,7 +685,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_6umr5"]
+[sub_resource type="Resource" id="Resource_5dv4f"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -631,7 +696,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_cp51e"]
+[sub_resource type="Resource" id="Resource_4oig3"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -643,7 +708,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_yahss"]
+[sub_resource type="Resource" id="Resource_rhwfd"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -659,7 +724,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_k8uwy"]
+[sub_resource type="Resource" id="Resource_x23to"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(1.2, 3, 3)
@@ -669,9 +734,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_g07yr"]
+[sub_resource type="Resource" id="Resource_w4by1"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_hx0ak"), SubResource("Resource_6umr5"), SubResource("Resource_cp51e"), SubResource("Resource_yahss"), SubResource("Resource_k8uwy")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_20dfd"), SubResource("Resource_5dv4f"), SubResource("Resource_4oig3"), SubResource("Resource_rhwfd"), SubResource("Resource_x23to")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -895,6 +960,24 @@ density = 0.02
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_eu26w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartingAnimations" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_srgoo")
+}
+autoplay = "Fade"
+
+[node name="BlackRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="DaylightAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1126,7 +1209,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_g07yr")
+modifier_stack = SubResource("Resource_w4by1")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
