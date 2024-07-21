@@ -11,8 +11,8 @@ func _ready():
 	original_boat_position = boat.global_position
 	
 func _process(delta):
-	
-	pass
+	if Input.is_action_pressed("Esc"):
+		get_tree().quit()
 
 func _on_game_end_body_entered(body):
 	print("You Win")
