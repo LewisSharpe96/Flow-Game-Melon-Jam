@@ -18,11 +18,8 @@ func _process(delta):
 	if Input.is_action_pressed("Esc"):
 		get_tree().quit()
 
-func _on_area_3d_body_entered(body):
-	pass
-	
 func _on_end_area_body_entered(body):
-	anim_player.play("Fade")
+	anim_player.play("Fade",-1.0,-1.0,true)
 	print("end")
 	end = true
 

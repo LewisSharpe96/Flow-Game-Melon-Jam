@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c15u1ent6np34"]
+[gd_scene load_steps=12 format=3 uid="uid://c15u1ent6np34"]
 
 [ext_resource type="Material" uid="uid://bn8orxqdpc4tx" path="res://Assets/PaperBoat/PaperBoat.tres" id="1_7pea1"]
+[ext_resource type="Shader" path="res://mask.gdshader" id="2_4uinp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx3db"]
 resource_name = "Material #25"
@@ -73,6 +74,48 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kfl4x")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3005"]
+render_priority = 0
+shader = ExtResource("2_4uinp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3nmt"]
+resource_name = "DefaultMaterial"
+albedo_color = Color(0.735357, 0.735357, 0.735357, 1)
+metallic = 0.2
+roughness = 0.8
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4mafg"]
+_surfaces = [{
+"aabb": AABB(-0.643594, -0.362637, 0, 1.29093, 0.725273, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0),
+"name": "DefaultMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(160, 127, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 0, 0, 160, 127, 255, 255, 0, 0, 0, 0, 0, 0, 255, 127, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qv7up"]
+resource_name = "Root Scene_Plane003"
+_surfaces = [{
+"aabb": AABB(-0.643594, -0.362637, 0, 1.29093, 0.725273, 1e-05),
+"attribute_data": PackedByteArray(255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 0, 0, 0, 0, 255, 127),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_m3nmt"),
+"name": "DefaultMaterial",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(160, 127, 0, 0, 0, 0, 0, 128, 255, 255, 255, 127, 0, 0, 0, 128, 160, 127, 255, 255, 0, 0, 0, 128, 0, 0, 255, 127, 0, 0, 0, 128, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4mafg")
+
 [node name="PaperBoat" type="Node3D"]
 
 [node name="Plane001" type="MeshInstance3D" parent="."]
@@ -85,4 +128,10 @@ skeleton = NodePath("")
 transform = Transform3D(2.84683, 0, 0, 0, 2.54, -4.13819e-07, 0, 4.13819e-07, 2.54, 0.0136927, 0.133015, 5.81427e-09)
 material_override = ExtResource("1_7pea1")
 mesh = SubResource("ArrayMesh_kkudh")
+skeleton = NodePath("")
+
+[node name="Plane003" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.54, 0, 0, 0, 0, 2.54, 0, -2.54, 0, 0, 0.347916, 0)
+material_override = SubResource("ShaderMaterial_e3005")
+mesh = SubResource("ArrayMesh_qv7up")
 skeleton = NodePath("")

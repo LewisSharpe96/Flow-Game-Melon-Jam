@@ -16,6 +16,7 @@ extends RigidBody3D
 
 @onready var boat_collision_area = $Area3D
 
+
 @export var boat_spawn = Marker3D
 
 var died = false

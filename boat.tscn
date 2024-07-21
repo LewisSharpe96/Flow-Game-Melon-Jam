@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl567efhbp7vv"]
+[gd_scene load_steps=7 format=3 uid="uid://dl567efhbp7vv"]
 
 [ext_resource type="Script" path="res://boat.gd" id="1_8qpcl"]
 [ext_resource type="PackedScene" uid="uid://c15u1ent6np34" path="res://Assets/PaperBoat/PaperBoat.tscn" id="2_qfnib"]
+[ext_resource type="Shader" path="res://mask.gdshader" id="3_c24vn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xr7o"]
 radius = 0.611213
 height = 3.49514
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fb2hr"]
+render_priority = 0
+shader = ExtResource("3_c24vn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kj44c"]
 
 [node name="Boat" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13922, 0)
@@ -21,10 +28,18 @@ shape = SubResource("CapsuleShape3D_4xr7o")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(-1.14742e-07, 0, 2.625, 0, 2.625, 0, -2.625, 0, -1.14742e-07, 0, 0, 0)
-collision_layer = 524290
-collision_mask = 524289
+collision_layer = 2
 
 [node name="BoatCollision2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-1.6652e-08, -0.380952, 0, 0.380952, -1.6652e-08, 0, 0, 0, 0.380952, 0, 0.0583389, 0)
+shape = SubResource("CapsuleShape3D_4xr7o")
+
+[node name="Death" type="Area3D" parent="."]
+transform = Transform3D(-1.14742e-07, 0, 2.625, 0, 2.625, 0, -2.625, 0, -1.14742e-07, 0, 0, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="BoatCollision2" type="CollisionShape3D" parent="Death"]
 transform = Transform3D(-1.6652e-08, -0.380952, 0, 0.380952, -1.6652e-08, 0, 0, 0, 0.380952, 0, 0.0583389, 0)
 shape = SubResource("CapsuleShape3D_4xr7o")
 
@@ -60,4 +75,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -5)
 [node name="PaperBoat" parent="." instance=ExtResource("2_qfnib")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.468424, 2.98023e-08, 0.42324, -4.09509e-08, 1.26807, -1.53262e-08, -0.468424, -8.10562e-08, 0.42324, 0, 0.241902, 0)
+material_override = SubResource("ShaderMaterial_fb2hr")
+mesh = SubResource("PlaneMesh_kj44c")
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Death" to="." method="_on_area_3d_body_entered"]

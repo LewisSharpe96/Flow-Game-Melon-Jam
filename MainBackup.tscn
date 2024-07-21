@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=108 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -32,7 +32,6 @@
 [ext_resource type="AudioStream" uid="uid://dgxeqnllblsu" path="res://Assets/Audio/wind_audio.mp3" id="21_l2ovq"]
 [ext_resource type="PackedScene" uid="uid://cc8nbhe32nka1" path="res://Assets/Dock/dock.tscn" id="25_toag1"]
 [ext_resource type="Script" path="res://Audio.gd" id="29_wpx3e"]
-[ext_resource type="PackedScene" uid="uid://cg1uskieqcoou" path="res://CollectablePettle.tscn" id="30_5iuxo"]
 [ext_resource type="Texture2D" uid="uid://ccyijlmx520it" path="res://Assets/MossTop.png" id="30_ux6j1"]
 [ext_resource type="Texture2D" uid="uid://2d52gxydamgd" path="res://Assets/Footprint/Albedo.png" id="31_t63rf"]
 [ext_resource type="Texture2D" uid="uid://mamkh5rlsnq7" path="res://Assets/Footprint/Normal_2K__ukftbe2cw.png" id="32_m3xfm"]
@@ -44,8 +43,8 @@
 [ext_resource type="PackedScene" uid="uid://dapjs8rh6wj64" path="res://Assets/CookingPan/cooking_pan.tscn" id="39_233to"]
 [ext_resource type="PackedScene" uid="uid://c0kpdr0foyfr3" path="res://Assets/Chair/chair.tscn" id="40_bg2uf"]
 [ext_resource type="PackedScene" uid="uid://y4ue131e4rfn" path="res://FireFly.tscn" id="41_sdpyw"]
-[ext_resource type="Texture2D" uid="uid://cblc2globxl47" path="res://Assets/Particles/Leaf.png" id="45_5swa8"]
 [ext_resource type="PackedScene" uid="uid://tql8k1en1d3d" path="res://Assets/Pipe/Pipe.tscn" id="46_vt1tq"]
+[ext_resource type="PackedScene" uid="uid://dknn36fmeemk4" path="res://Assets/CanTall/can_tall.tscn" id="47_gf32f"]
 
 [sub_resource type="Animation" id="Animation_qxpbo"]
 length = 0.001
@@ -339,6 +338,138 @@ tracks/18/keys = {
 "update": 0,
 "values": [Vector3(-0.488311, -0.272557, -2.75693), Vector3(0.0585813, -0.240452, -2.90167)]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Boat/MeshInstance3D2:material_override:emission_energy_multiplier")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(48.6, 52.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 50.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Boat/MeshInstance3D2:transparency")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(48.6, 53),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Boat/MeshInstance3D3:transparency")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(41, 45.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Boat/MeshInstance3D3:material_override:emission_energy_multiplier")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(41, 44.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 50.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Boat/MeshInstance3D4:material_override:emission_energy_multiplier")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(34.2, 36.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 50.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Boat/MeshInstance3D4:transparency")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(34.5, 37.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Boat/MeshInstance3D5:material_override:emission_energy_multiplier")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(44.2, 48.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 50.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Boat/MeshInstance3D5:transparency")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(43.6, 48.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Boat/MeshInstance3D6:material_override:emission_energy_multiplier")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(50.5, 59.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 80.0]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Boat/MeshInstance3D6:transparency")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(50, 59.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Boat/OmniLight3D:light_energy")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(50.2, 59.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.2]
+}
 
 [sub_resource type="Animation" id="Animation_5qo1f"]
 length = 0.001
@@ -570,6 +701,138 @@ tracks/18/keys = {
 "update": 0,
 "values": [Vector3(0.0585813, -0.240452, -2.90167)]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Boat/MeshInstance3D2:material_override:emission_energy_multiplier")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [25.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Boat/MeshInstance3D2:transparency")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Boat/MeshInstance3D3:transparency")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Boat/MeshInstance3D3:material_override:emission_energy_multiplier")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18.9838]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Boat/MeshInstance3D4:material_override:emission_energy_multiplier")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18.9838]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Boat/MeshInstance3D4:transparency")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Boat/MeshInstance3D5:material_override:emission_energy_multiplier")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [18.9838]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Boat/MeshInstance3D5:transparency")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Boat/MeshInstance3D6:material_override:emission_energy_multiplier")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [50.0]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Boat/MeshInstance3D6:transparency")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.640874]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Boat/OmniLight3D:light_energy")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.451]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e8o7y"]
 _data = {
@@ -672,7 +935,25 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_8dkoo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opwbw"]
+emission_enabled = true
+emission = Color(0.643137, 0.643137, 0.305882, 1)
+emission_energy_multiplier = 18.9838
+
+[sub_resource type="SphereMesh" id="SphereMesh_sfcut"]
+radius = 0.025
+height = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4quo"]
+emission_enabled = true
+emission = Color(0.643137, 0.643137, 0.305882, 1)
+emission_energy_multiplier = 50.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_mvsdf"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="Resource" id="Resource_6fsls"]
 script = ExtResource("12_qnmrm")
 amount = 6000
 enabled = true
@@ -681,7 +962,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_rn357"]
+[sub_resource type="Resource" id="Resource_tdib8"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -692,7 +973,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_pqbnp"]
+[sub_resource type="Resource" id="Resource_6uedi"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -704,7 +985,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_mq8nb"]
+[sub_resource type="Resource" id="Resource_q7fns"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -720,7 +1001,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_n6xkg"]
+[sub_resource type="Resource" id="Resource_5b0we"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(1.2, 3, 3)
@@ -730,9 +1011,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ghgt6"]
+[sub_resource type="Resource" id="Resource_a6kt1"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8dkoo"), SubResource("Resource_rn357"), SubResource("Resource_pqbnp"), SubResource("Resource_mq8nb"), SubResource("Resource_n6xkg")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_6fsls"), SubResource("Resource_tdib8"), SubResource("Resource_6uedi"), SubResource("Resource_q7fns"), SubResource("Resource_5b0we")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -803,9 +1084,9 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_7y61u")
 
-[sub_resource type="Curve3D" id="Curve3D_cp710"]
+[sub_resource type="Curve3D" id="Curve3D_25k10"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 471.268, 0, 460.898, 0, 0, 0, 0, 0, 0, 469.957, 0, 457.663, 0, 0, 0, 0, 0, 0, 470.244, 0, 454.263, 0, 0, 0, 0, 0, 0, 470.735, 0, 447.505, 0, 0, 0, 0, 0, 0, 469.563, 0, 443.652, 0, 0, 0, 0, 0, 0, 463.829, 0, 439.761, 0, 0, 0, 0, 0, 0, 459.61, 0, 435.583, 0, 0, 0, 0, 0, 0, 454.818, 0, 431.569, 0, 0, 0, 0, 0, 0, 453.958, 0, 424.033, 0, 0, 0, 0, 0, 0, 458.013, 0, 415.678, 0, 0, 0, 0, 0, 0, 461.617, 0, 411.541, 0, 0, 0, 0, 0, 0, 465.672, 0, 407.978, 0, 0, 0, 0, 0, 0, 465.605, 0, 394.261, 0, 0, 0, 0, 0, 0, 458.561, 0, 393.933, 0, 0, 0, 0, 0, 0, 452.663, 0, 390.37, 0, 0, 0, 0, 0, 0, 446.036, 0, 374.982, 0, 0, 0, 0, 0, 0, 444.4, 0, 364.182, 0, 0, 0, 0, 0, 0, 445.22, 0, 358.12, 0, 0, 0, 0, 0, 0, 445.327, 0, 351.273, 0, 0, 0, 0, 0, 0, 447.784, 0, 343.655, 0, 0, 0, 0, 0, 0, 455.934, 0, 341.361, 0, 0, 0, 0, 0, 0, 458.597, 0, 338.822, 0, 0, 0, 0, 0, 0, 458.073, 0, 336.658, 0, 0, 0, 0, 0, 0, 453.445, 0, 334.938, 0, 0, 0, 0, 0, 0, 447.941, 0, 329.415, 0, 0, 0, 0, 0, 0, 442.698, 0, 326.098, 0, 0, 0, 0, 0, 0, 440.364, 0, 322.944, 0, 0, 0, 0, 0, 0, 437.589, 0, 317.57, 0, 0, 0, 0, 0, 0, 436.6, 0, 310.144, 0, 0, 0, 0, 0, 0, 438.383, 0, 301.613, 0, 0, 0, 0, 0, 0, 443.462, 0, 296.985, 0, 0, 0, 0, 0, 0, 448.335, 0, 292.316, 0, 0, 0, 0, 0, 0, 454.643, 0, 288.138, 0, 0, 0, 0, 0, 0, 457.305, 0, 284.862, 0, 0, 0, 0, 0, 0, 455.771, 0, 280.429, 0, 0, 0, 0, 0, 0, 451.348, 0, 274.285, 0, 0, 0, 0, 0, 0, 449.2, 0, 266.174, 0, 0, 0, 0, 0, 0, 447.643, 0, 258.843, 0, 0, 0, 0, 0, 0, 450.715, 0, 253.56, 0, 0, 0, 0, 0, 0, 459.971, 0, 250.897, 0, 0, 0, 0, 0, 0, 472.422, 0, 250.57, 0, 0, 0, 0, 0, 0, 480.737, 0, 254.01, 0, 0, 0, 0, 0, 0, 483.931, 0, 260.031, 0, 0, 0, 0, 0, 0, 484.013, 0, 268.837, 0, 0, 0, 0, 0, 0, 479.363, 0, 277.644, 0, 0, 0, 0, 0, 0, 474.489, 0, 281.207, 0, 0, 0, 0, 0, 0, 474.138, 0, 284.042, 0, 0, 0, 0, 0, 0, 480.159, 0, 285.435, 0, 0, 0, 0, 0, 0, 485.074, 0, 286.418, 0, 0, 0, 0, 0, 0, 491.177, 0, 289.162, 0, 0, 0, 0, 0, 0, 496.747, 0, 294.773, 0, 0, 0, 0, 0, 0, 501.349, 0, 304.309, 0, 0, 0, 0, 0, 0, 501.595, 0, 316.596, 0, 0, 0, 0, 0, 0, 495.82, 0, 325.606, 0, 0, 0, 0, 0, 0, 488.3, 0, 331.456, 0, 0, 0, 0, 0, 0, 484.286, 0, 336.248, 0, 0, 0, 0, 0, 0, 481.501, 0, 340.467, 0, 0, 0, 0, 0, 0, 483.794, 0, 342.515, 0, 0, 0, 0, 0, 0, 488.75, 0, 341.654, 0, 0, 0, 0, 0, 0, 492.805, 0, 339.279, 0, 0, 0, 0, 0, 0, 502.757, 0, 340.876, 0, 0, 0, 0, 0, 0, 509.679, 0, 349.354, 0, 0, 0, 0, 0, 0, 514.84, 0, 356.112, 0, 0, 0, 0, 0, 0, 515.076, 0, 368.4, 0, 0, 0, 0, 0, 0, 514.942, 0, 376.141, 0, 0, 0, 0, 0, 0, 509.864, 0, 382.612, 0, 0, 0, 0, 0, 0, 500.525, 0, 388.756, 0, 0, 0, 0, 0, 0, 490.835, 0, 392.172, 0, 0, 0, 0, 0, 0, 487.19, 0, 393.728, 0, 0, 0, 0, 0, 0, 488.5, 0, 401.838, 0, 0, 0, 0, 0, 0, 489.36, 0, 404.582, 0, 0, 0, 0, 0, 0, 490.697, 0, 405.234, 0, 0, 0, 0, 0, 0, 496.308, 0, 407.773, 0, 0, 0, 0, 0, 0, 499.73, 0, 416.001, 0, 0, 0, 0, 0, 0, 503.498, 0, 424.93, 0, 0, 0, 0, 0, 0, 499.241, 0, 433.662, 0, 0, 0, 0, 0, 0, 493.277, 0, 440.965, 0, 0, 0, 0, 0, 0, 492.458, 0, 446.945, 0, 0, 0, 0, 0, 0, 490.328, 0, 452.228, 0, 0, 0, 0, 0, 0, 489.78, 0, 459.137, 0, 0, 0, 0, 0, 0, 472.73, 0, 461.585),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 471.268, 0, 460.898, 0, 0, 0, 0, 0, 0, 469.957, 0, 457.663, 0, 0, 0, 0, 0, 0, 470.244, 0, 454.263, 0, 0, 0, 0, 0, 0, 470.735, 0, 447.505, 0, 0, 0, 0, 0, 0, 469.563, 0, 443.652, 0, 0, 0, 0, 0, 0, 463.829, 0, 439.761, 0, 0, 0, 0, 0, 0, 459.61, 0, 435.583, 0, 0, 0, 0, 0, 0, 454.818, 0, 431.569, 0, 0, 0, 0, 0, 0, 453.958, 0, 424.033, 0, 0, 0, 0, 0, 0, 458.013, 0, 415.678, 0, 0, 0, 0, 0, 0, 461.617, 0, 411.541, 0, 0, 0, 0, 0, 0, 465.672, 0, 407.978, 0, 0, 0, 0, 0, 0, 465.605, 0, 394.261, 0, 0, 0, 0, 0, 0, 458.561, 0, 393.933, 0, 0, 0, 0, 0, 0, 452.663, 0, 390.37, 0, 0, 0, 0, 0, 0, 446.036, 0, 374.982, 0, 0, 0, 0, 0, 0, 444.4, 0, 364.182, 0, 0, 0, 0, 0, 0, 445.22, 0, 358.12, 0, 0, 0, 0, 0, 0, 445.327, 0, 351.273, 0, 0, 0, 0, 0, 0, 447.784, 0, 343.655, 0, 0, 0, 0, 0, 0, 455.934, 0, 341.361, 0, 0, 0, 0, 0, 0, 458.597, 0, 338.822, 0, 0, 0, 0, 0, 0, 458.073, 0, 336.658, 0, 0, 0, 0, 0, 0, 453.445, 0, 334.938, 0, 0, 0, 0, 0, 0, 447.941, 0, 329.415, 0, 0, 0, 0, 0, 0, 442.698, 0, 326.098, 0, 0, 0, 0, 0, 0, 440.364, 0, 322.944, 0, 0, 0, 0, 0, 0, 437.589, 0, 317.57, 0, 0, 0, 0, 0, 0, 436.6, 0, 310.144, 0, 0, 0, 0, 0, 0, 438.383, 0, 301.613, 0, 0, 0, 0, 0, 0, 443.462, 0, 296.985, 0, 0, 0, 0, 0, 0, 448.335, 0, 292.316, 0, 0, 0, 0, 0, 0, 454.643, 0, 288.138, 0, 0, 0, 0, 0, 0, 457.305, 0, 284.862, 0, 0, 0, 0, 0, 0, 455.771, 0, 280.429, 0, 0, 0, 0, 0, 0, 451.348, 0, 274.285, 0, 0, 0, 0, 0, 0, 449.2, 0, 266.174, 0, 0, 0, 0, 0, 0, 447.643, 0, 258.843, 0, 0, 0, 0, 0, 0, 450.715, 0, 253.56, 0, 0, 0, 0, 0, 0, 459.971, 0, 250.897, 0, 0, 0, 0, 0, 0, 472.422, 0, 250.57, 0, 0, 0, 0, 0, 0, 480.737, 0, 254.01, 0, 0, 0, 0, 0, 0, 483.931, 0, 260.031, 0, 0, 0, 0, 0, 0, 484.013, 0, 268.837, 0, 0, 0, 0, 0, 0, 480.698, 0, 275.786, 0, 0, 0, 0, 0, 0, 479.829, 0, 278.197, 0, 0, 0, 0, 0, 0, 480.073, 0, 281.616, 0, 0, 0, 0, 0, 0, 481.809, 0, 284.6, 0, 0, 0, 0, 0, 0, 485.518, 0, 285.653, 0, 0, 0, 0, 0, 0, 491.177, 0, 289.162, 0, 0, 0, 0, 0, 0, 496.747, 0, 294.773, 0, 0, 0, 0, 0, 0, 501.349, 0, 304.309, 0, 0, 0, 0, 0, 0, 501.595, 0, 316.596, 0, 0, 0, 0, 0, 0, 499.06, 0, 320.538, 0, 0, 0, 0, 0, 0, 495.143, 0, 325.93, 0, 0, 0, 0, 0, 0, 495.86, 0, 328.78, 0, 0, 0, 0, 0, 0, 499.604, 0, 331.259, 0, 0, 0, 0, 0, 0, 501.051, 0, 335.302, 0, 0, 0, 0, 0, 0, 500.911, 0, 337.469, 0, 0, 0, 0, 0, 0, 500.092, 0, 339.664, 0, 0, 0, 0, 0, 0, 502.757, 0, 340.876, 0, 0, 0, 0, 0, 0, 509.679, 0, 349.354, 0, 0, 0, 0, 0, 0, 514.84, 0, 356.112, 0, 0, 0, 0, 0, 0, 515.076, 0, 368.4, 0, 0, 0, 0, 0, 0, 514.942, 0, 376.141, 0, 0, 0, 0, 0, 0, 509.864, 0, 382.612, 0, 0, 0, 0, 0, 0, 500.525, 0, 388.756, 0, 0, 0, 0, 0, 0, 490.835, 0, 392.172, 0, 0, 0, 0, 0, 0, 487.19, 0, 393.728, 0, 0, 0, 0, 0, 0, 488.5, 0, 401.838, 0, 0, 0, 0, 0, 0, 489.36, 0, 404.582, 0, 0, 0, 0, 0, 0, 490.697, 0, 405.234, 0, 0, 0, 0, 0, 0, 496.308, 0, 407.773, 0, 0, 0, 0, 0, 0, 499.73, 0, 416.001, 0, 0, 0, 0, 0, 0, 503.498, 0, 424.93, 0, 0, 0, 0, 0, 0, 499.241, 0, 433.662, 0, 0, 0, 0, 0, 0, 493.277, 0, 440.965, 0, 0, 0, 0, 0, 0, 492.458, 0, 446.945, 0, 0, 0, 0, 0, 0, 490.328, 0, 452.228, 0, 0, 0, 0, 0, 0, 489.78, 0, 459.137, 0, 0, 0, 0, 0, 0, 472.73, 0, 461.585),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 81
@@ -814,7 +1095,7 @@ point_count = 81
 script = ExtResource("19_wme33")
 closed = true
 thickness = 0.0
-curve = SubResource("Curve3D_cp710")
+curve = SubResource("Curve3D_25k10")
 
 [sub_resource type="Curve3D" id="Curve3D_4lfa8"]
 _data = {
@@ -955,7 +1236,7 @@ gradient = SubResource("Gradient_svro6")
 density = 0.02
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smgt7"]
-size = Vector3(38.1025, 7.81641, 20.9656)
+size = Vector3(38.1025, 7.81641, 15.2346)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_eu26w")
@@ -1037,7 +1318,7 @@ transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 6.9509)
 transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 13.1017)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("boat_spawn") instance=ExtResource("4_7remr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 467.254, 0.994991, 290.174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 487.486, 0.994991, 711.435)
 collision_layer = 2
 boat_spawn = NodePath("../BoatSpawn")
 
@@ -1060,8 +1341,42 @@ transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, -5.94132e-08, -0.999271, 
 attributes = SubResource("CameraAttributesPractical_qjlej")
 current = true
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25882, 0.617042, -1.41632)
+material_override = SubResource("StandardMaterial3D_opwbw")
+mesh = SubResource("SphereMesh_sfcut")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78653, 0.434153, -0.225098)
+material_override = SubResource("StandardMaterial3D_opwbw")
+mesh = SubResource("SphereMesh_sfcut")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639526, 0.470884, 0.542175)
+material_override = SubResource("StandardMaterial3D_opwbw")
+mesh = SubResource("SphereMesh_sfcut")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324738, 0.610204, 1.27545)
+material_override = SubResource("StandardMaterial3D_opwbw")
+mesh = SubResource("SphereMesh_sfcut")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, 0.969562, -0.0897217)
+material_override = SubResource("StandardMaterial3D_m4quo")
+transparency = 0.640874
+mesh = SubResource("SphereMesh_mvsdf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Boat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954992, -0.27771)
+light_color = Color(0.643137, 0.643137, 0.305882, 1)
+light_energy = 0.451
+light_volumetric_fog_energy = 0.608
+distance_fade_begin = 2489.57
+distance_fade_length = 12.05
+
 [node name="BoatSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 467.254, 1.07535, 288.605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 487.486, 1.07535, 709.866)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("7_ialyn")
@@ -1117,6 +1432,18 @@ transform = Transform3D(-37.7848, 2.70361, -15.6217, 9.71697, -20.995, -23.1561,
 
 [node name="SmallRock20" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(-24.4414, 2.90207, 29.2457, -1.0154, 28.3431, -5.11797, -34.287, -2.90812, -20.6963, 497.393, -0.506658, 688.565)
+
+[node name="SmallRock60" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-40.8775, 4.85362, 48.9125, -1.69822, 47.4029, -8.55964, -57.3439, -4.86374, -34.6139, 463.976, 4.17199, 677.66)
+
+[node name="SmallRock61" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(31.5563, 6.56938, 53.4759, -1.69822, 47.4029, -8.55964, -62.9563, 2.01415, 27.035, 456.6, 4.17199, 649.807)
+
+[node name="SmallRock62" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(28.688, 27.8926, -42.5878, -27.8888, 38.6437, 26.5471, 57.9775, 4.78708, 33.8431, 457.663, 4.17199, 663.884)
+
+[node name="SmallRock63" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(28.688, 27.8926, -42.5878, -27.8888, 38.6437, 26.5471, 57.9775, 4.78708, 33.8431, 453.8, 4.17199, 642.34)
 
 [node name="SmallRock22" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(-11.6549, 25.3892, 13.4213, 19.8249, 13.2166, -27.2157, -35.2867, -0.960473, -19.7235, 478.296, -0.506658, 704.283)
@@ -1182,13 +1509,16 @@ transform = Transform3D(26.024, 8.14842, -1.60206, 7.14588, -19.2878, 17.9757, 4
 transform = Transform3D(5.80897, -17.0148, -20.566, 7.14588, -19.2878, 17.9757, -25.7178, -9.20247, 0.349332, 454.52, -1.14941, 363.33)
 
 [node name="SmallRock54" parent="Rocks" instance=ExtResource("10_qtujl")]
-transform = Transform3D(26.1841, 7.37354, -2.49715, -0.379869, -7.54183, -26.2523, -7.77565, 25.1984, -7.12662, 492.832, -1.14941, 342.849)
+transform = Transform3D(26.2669, -7.30139, 1.71754, -0.379869, -7.54183, -26.2523, 7.49108, 25.2194, -7.35354, 496.656, -1.14941, 341.74)
+
+[node name="SmallRock64" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(28.823, 49.8946, -12.8337, -0.668885, -17.9573, -53.8465, -38.5024, 37.6632, -8.67196, 491.846, 1.80084, 332.751)
 
 [node name="SmallRock55" parent="Rocks" instance=ExtResource("10_qtujl")]
-transform = Transform3D(18.4613, -0.0173616, 20.1343, 20.1215, 0.991418, -18.4486, -0.719004, 27.2988, 0.682736, 496.705, -1.14941, 342.849)
+transform = Transform3D(15.9634, -14.665, 16.6228, 20.1215, 0.991418, -18.4486, 9.30087, 23.0253, 11.3815, 499.924, -1.14941, 343.819)
 
 [node name="SmallRock56" parent="Rocks" instance=ExtResource("10_qtujl")]
-transform = Transform3D(7.86114, -0.00739704, 8.57355, 5.45605, 8.97694, -4.99494, -6.61342, 7.39716, 6.07027, 495.47, 0.725266, 342.528)
+transform = Transform3D(10.1824, -3.97605, 3.9766, 5.45605, 8.97694, -4.99494, -1.36156, 6.23771, 9.7232, 499.055, 0.725266, 342.885)
 
 [node name="SmallRock41" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(24.6018, 2.75437, -11.5488, 8.04197, -23.4136, 11.5473, -8.73435, -13.7995, -21.8973, 476.191, -0.840741, 374.838)
@@ -1265,7 +1595,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_ghgt6")
+modifier_stack = SubResource("Resource_a6kt1")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -1489,25 +1819,6 @@ texture_orm = ExtResource("33_xqnly")
 modulate = Color(0.466667, 0.423529, 0.380392, 1)
 albedo_mix = 0.25
 
-[node name="Petals" type="Node3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 476.616, 2.5447, 389.273)
-
-[node name="Pettle" parent="Petals" instance=ExtResource("30_5iuxo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-skeleton = NodePath("../..")
-
-[node name="Pettle2" parent="Petals" instance=ExtResource("30_5iuxo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-skeleton = NodePath("../..")
-
-[node name="Pettle3" parent="Petals" instance=ExtResource("30_5iuxo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-skeleton = NodePath("../..")
-
-[node name="Pettle4" parent="Petals" instance=ExtResource("30_5iuxo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-skeleton = NodePath("../..")
-
 [node name="Trees" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 476.616, 2.5447, 389.273)
 
@@ -1519,6 +1830,15 @@ transform = Transform3D(0.946654, -0.0605068, 1.00453, 0.0414973, 1.3803, 0.0440
 
 [node name="BigTree2" parent="Trees" instance=ExtResource("35_y0sg6")]
 transform = Transform3D(2.84579, 0.419369, -0.1775, -0.418556, 2.85132, 0.0261064, 0.179409, 0, 2.87641, 13.9167, -0.437127, 90.8905)
+
+[node name="BigTree4" parent="Trees" instance=ExtResource("35_y0sg6")]
+transform = Transform3D(2.84579, 0.419369, -0.1775, -0.418556, 2.85132, 0.0261064, 0.179409, 0, 2.87641, 20.9623, -0.437127, 123.378)
+
+[node name="BigTree5" parent="Trees" instance=ExtResource("35_y0sg6")]
+transform = Transform3D(2.40162, 0.338289, 1.55682, -0.418556, 2.85132, 0.0261064, -1.53718, -0.247853, 2.42519, 28.3662, -0.437127, 111.882)
+
+[node name="BigTree6" parent="Trees" instance=ExtResource("35_y0sg6")]
+transform = Transform3D(-1.63616, -0.261767, 2.35805, -0.418556, 2.85132, 0.0261064, -2.33532, -0.32764, -1.65676, 27.2188, -0.437127, 119.815)
 
 [node name="meatCan" parent="." instance=ExtResource("36_nrkkq")]
 transform = Transform3D(0.841961, 0.475826, -28.1274, -0.663838, 28.1325, 0.456041, 28.1236, 0.649803, 0.852839, 470.249, 2.54219, 318.114)
@@ -1552,25 +1872,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 485.748, 3.05176e-05, 471.299
 size = Vector3(156.286, 81.6544, 676.647)
 material = SubResource("FogMaterial_w45m6")
 
-[node name="Decal" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 509.53, 0.960799, 524.11)
-texture_albedo = ExtResource("45_5swa8")
-modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
-albedo_mix = 0.61
-
 [node name="Pipe" parent="." instance=ExtResource("46_vt1tq")]
 transform = Transform3D(-7.25022, 0, 6.33834e-07, 0, 7.25022, 0, -6.33834e-07, 0, -7.25022, 486.556, 3.39278, 725.43)
 
 [node name="EndArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.811, -1.52588e-05, 261.052)
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830536, 0, 0.859039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830536, 0, -2.00647)
 shape = SubResource("BoxShape3D_smgt7")
+
+[node name="CanTall" parent="." instance=ExtResource("47_gf32f")]
+transform = Transform3D(26.1181, -30.7691, -22.5599, 35.2498, 29.9215, -2.38419e-07, 14.5993, -17.1991, 40.3596, 472.598, 1.6863, 324.669)
 
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="Boat" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="EndArea" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="EndArea" to="." method="_on_end_area_body_entered"]
-[connection signal="body_entered" from="EndArea" to="Boat" method="_on_area_3d_body_entered"]
