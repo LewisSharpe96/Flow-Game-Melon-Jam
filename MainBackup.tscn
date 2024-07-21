@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=66 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
@@ -123,7 +123,7 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_42y0n"]
+[sub_resource type="Resource" id="Resource_qtimv"]
 script = ExtResource("12_qnmrm")
 amount = 6000
 enabled = true
@@ -132,7 +132,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_kj5sx"]
+[sub_resource type="Resource" id="Resource_jq6r8"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -143,7 +143,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_vxi7f"]
+[sub_resource type="Resource" id="Resource_hlk74"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -155,7 +155,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_e1rb6"]
+[sub_resource type="Resource" id="Resource_d2kf2"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -171,7 +171,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_yu33q"]
+[sub_resource type="Resource" id="Resource_br6tt"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(1.2, 3, 3)
@@ -181,9 +181,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_6rbow"]
+[sub_resource type="Resource" id="Resource_xdhtg"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_42y0n"), SubResource("Resource_kj5sx"), SubResource("Resource_vxi7f"), SubResource("Resource_e1rb6"), SubResource("Resource_yu33q")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_qtimv"), SubResource("Resource_jq6r8"), SubResource("Resource_hlk74"), SubResource("Resource_d2kf2"), SubResource("Resource_br6tt")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -305,6 +305,9 @@ _data = {
 "new_animation": SubResource("Animation_fwlry")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_aw5u3"]
+size = Vector3(33.5693, 5.66016, 10.2766)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_eu26w")
 
@@ -419,7 +422,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_6rbow")
+modifier_stack = SubResource("Resource_xdhtg")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -495,13 +498,19 @@ volume_db = -35.0
 mix_target = 1
 
 [node name="Pettle" parent="." instance=ExtResource("30_5iuxo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Pettle2" parent="." instance=ExtResource("30_5iuxo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Pettle3" parent="." instance=ExtResource("30_5iuxo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Pettle4" parent="." instance=ExtResource("30_5iuxo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="GameEnd" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.377, 0, 265.056)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameEnd"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33008, -4.18347)
+shape = SubResource("BoxShape3D_aw5u3")
+
+[connection signal="body_entered" from="GameEnd" to="." method="_on_game_end_body_entered"]

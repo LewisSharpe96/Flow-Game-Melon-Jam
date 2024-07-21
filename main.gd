@@ -8,7 +8,6 @@ func _ready():
 	boat_spawn = $BoatSpawn
 	boat = $Boat
 
-
-func _on_end_area_body_entered(body):
-	if body == boat:
-		print("You Win")
+func _on_game_end_body_entered(body):
+	print("You Win")
+	pass # Replace with function body.
