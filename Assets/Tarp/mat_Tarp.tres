@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://3pqgg2f76a4q"]
+
+[ext_resource type="Texture2D" uid="uid://c6sn3hkrqs8n4" path="res://Assets/Tarp/Tarp_AlbedoAlpha.png" id="1_iypkq"]
+[ext_resource type="Texture2D" uid="uid://df77x3ee6v30s" path="res://Assets/Tarp/Tarp_Metallic_Red_Rough_Green_AO_Blue.png" id="2_xyl7e"]
+[ext_resource type="Texture2D" uid="uid://vy58n2xl10yq" path="res://Assets/Tarp/Tarp_Normal.png" id="3_l6c1w"]
+[ext_resource type="Texture2D" uid="uid://cb1rxeyap3ccs" path="res://Assets/Tarp/Grayscale.png" id="4_u5gy0"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_iypkq")
+metallic = 1.0
+metallic_texture = ExtResource("2_xyl7e")
+roughness_texture = ExtResource("2_xyl7e")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_l6c1w")
+ao_enabled = true
+ao_texture = ExtResource("2_xyl7e")
+ao_texture_channel = 2
+subsurf_scatter_strength = 0.33
+subsurf_scatter_skin_mode = true
+subsurf_scatter_texture = ExtResource("4_u5gy0")

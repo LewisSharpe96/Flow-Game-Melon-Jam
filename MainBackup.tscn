@@ -47,69 +47,65 @@
 [ext_resource type="Texture2D" uid="uid://cblc2globxl47" path="res://Assets/Particles/Leaf.png" id="45_5swa8"]
 [ext_resource type="PackedScene" uid="uid://tql8k1en1d3d" path="res://Assets/Pipe/Pipe.tscn" id="46_vt1tq"]
 
-[sub_resource type="Animation" id="Animation_4gp8s"]
-resource_name = "Fade"
+[sub_resource type="Animation" id="Animation_qxpbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l8r5o"]
+resource_name = "FadeBlack"
 length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BlackRect:visible")
+tracks/0/path = NodePath("ColorRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BlackRect:modulate")
+tracks/1/path = NodePath("ColorRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_eu1qs"]
-resource_name = "EndFade"
-
-[sub_resource type="Animation" id="Animation_vahst"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_srgoo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0u0t"]
 _data = {
-"EndFade": SubResource("Animation_eu1qs"),
-"Fade": SubResource("Animation_4gp8s"),
-"RESET": SubResource("Animation_vahst")
+"Fade": SubResource("Animation_l8r5o"),
+"RESET": SubResource("Animation_qxpbo")
 }
 
 [sub_resource type="Animation" id="Animation_jpjqk"]
@@ -676,7 +672,7 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_20dfd"]
+[sub_resource type="Resource" id="Resource_r0rte"]
 script = ExtResource("12_qnmrm")
 amount = 6000
 enabled = true
@@ -685,7 +681,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_5dv4f"]
+[sub_resource type="Resource" id="Resource_8u732"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -696,7 +692,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_4oig3"]
+[sub_resource type="Resource" id="Resource_2naif"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -708,7 +704,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_rhwfd"]
+[sub_resource type="Resource" id="Resource_d8ixh"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -724,7 +720,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_x23to"]
+[sub_resource type="Resource" id="Resource_5pqg0"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(1.2, 3, 3)
@@ -734,9 +730,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_w4by1"]
+[sub_resource type="Resource" id="Resource_n2n8s"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_20dfd"), SubResource("Resource_5dv4f"), SubResource("Resource_4oig3"), SubResource("Resource_rhwfd"), SubResource("Resource_x23to")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_r0rte"), SubResource("Resource_8u732"), SubResource("Resource_2naif"), SubResource("Resource_d8ixh"), SubResource("Resource_5pqg0")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -958,20 +954,20 @@ gradient = SubResource("Gradient_svro6")
 [sub_resource type="FogMaterial" id="FogMaterial_w45m6"]
 density = 0.02
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_smgt7"]
+size = Vector3(38.1025, 7.81641, 20.9656)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_eu26w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="StartingAnimations" type="AnimationPlayer" parent="CanvasLayer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
-"": SubResource("AnimationLibrary_srgoo")
+"": SubResource("AnimationLibrary_j0u0t")
 }
-autoplay = "Fade"
 
-[node name="BlackRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-modulate = Color(1, 1, 1, 0)
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1041,7 +1037,7 @@ transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 6.9509)
 transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 13.1017)
 
 [node name="Boat" parent="." node_paths=PackedStringArray("boat_spawn") instance=ExtResource("4_7remr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.248, 0.994991, 708.226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 467.254, 0.994991, 290.174)
 collision_layer = 2
 boat_spawn = NodePath("../BoatSpawn")
 
@@ -1065,7 +1061,7 @@ attributes = SubResource("CameraAttributesPractical_qjlej")
 current = true
 
 [node name="BoatSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.248, 1.07535, 706.657)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 467.254, 1.07535, 288.605)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("7_ialyn")
@@ -1076,7 +1072,10 @@ debug_show_collision = true
 [node name="Logs" type="Node3D" parent="."]
 
 [node name="Log" parent="Logs" instance=ExtResource("10_pqxwv")]
-transform = Transform3D(-4.92343, -14.0449, 1.38354, 1.06796e-08, -1.46532, -14.8749, 14.1128, -4.89973, 0.482666, 455.648, 1.28662, 449.344)
+transform = Transform3D(-4.58911, -13.0911, 1.28959, -1.19403e-07, -1.36581, -13.8649, 13.1545, -4.56701, 0.44989, 457.047, 1.28662, 445.623)
+
+[node name="Log3" parent="Logs" instance=ExtResource("10_pqxwv")]
+transform = Transform3D(2.48737, -3.28325, 3.37789, -3.38111, -3.9041, -1.30498, 3.27993, -1.53465, -3.90689, 456.536, 1.28662, 363.992)
 
 [node name="Log2" parent="Logs" instance=ExtResource("10_pqxwv")]
 transform = Transform3D(-2.25065, -7.1324, 0.702603, -5.16728e-08, -0.736432, -7.47582, 7.16692, -2.23981, 0.22064, 480.561, 0.145626, 621.476)
@@ -1171,10 +1170,58 @@ transform = Transform3D(-18.311, 17.3815, 10.4307, 2.97571, 16.2088, -21.786, -2
 transform = Transform3D(18.471, 13.6417, 14.7965, 18.592, -19.2556, -5.45606, 7.70535, 13.7599, -22.3048, 481.5, -0.239107, 426.739)
 
 [node name="SmallRock31" parent="Rocks" instance=ExtResource("10_qtujl")]
-transform = Transform3D(-16.2801, 21.7509, -2.83999, -21.0567, -14.5052, 9.61366, 6.14686, 7.9186, 25.411, 474.876, -0.968333, 426.664)
+transform = Transform3D(-16.2801, 21.7509, -2.83999, -18.6297, -15.5772, -12.5098, -11.5804, -5.51869, 24.1173, 474.876, -0.968333, 426.664)
 
 [node name="SmallRock26" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(18.471, 13.6417, 14.7965, 8.04197, -23.4136, 11.5473, 18.4489, -3.45191, -19.8477, 490.553, -0.840741, 424.766)
+
+[node name="SmallRock52" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(26.024, 8.14842, -1.60206, 7.14588, -19.2878, 17.9757, 4.23083, -17.544, -20.5065, 456.57, -1.14941, 361.97)
+
+[node name="SmallRock53" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(5.80897, -17.0148, -20.566, 7.14588, -19.2878, 17.9757, -25.7178, -9.20247, 0.349332, 454.52, -1.14941, 363.33)
+
+[node name="SmallRock54" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(26.1841, 7.37354, -2.49715, -0.379869, -7.54183, -26.2523, -7.77565, 25.1984, -7.12662, 492.832, -1.14941, 342.849)
+
+[node name="SmallRock55" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(18.4613, -0.0173616, 20.1343, 20.1215, 0.991418, -18.4486, -0.719004, 27.2988, 0.682736, 496.705, -1.14941, 342.849)
+
+[node name="SmallRock56" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(7.86114, -0.00739704, 8.57355, 5.45605, 8.97694, -4.99494, -6.61342, 7.39716, 6.07027, 495.47, 0.725266, 342.528)
+
+[node name="SmallRock41" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(24.6018, 2.75437, -11.5488, 8.04197, -23.4136, 11.5473, -8.73435, -13.7995, -21.8973, 476.191, -0.840741, 374.838)
+
+[node name="SmallRock44" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-26.0436, -6.7307, -4.75828, 5.3812, -1.93822, -26.7113, 6.2439, -26.4036, 3.17384, 481.217, -0.840741, 374.838)
+
+[node name="SmallRock48" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-0.771458, 3.07886, 27.1318, -24.4987, 11.9092, -2.04808, -12.0594, -24.3906, 2.42495, 489.219, -1.19481, 373.011)
+
+[node name="SmallRock57" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-4.29318, -9.39893, 25.2871, -22.6703, 15.1363, 1.77705, -14.6232, -20.7065, -10.179, 492.954, -0.807313, 370.314)
+
+[node name="SmallRock58" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(10.9377, -8.2899, 26.0476, 18.7005, 22.7319, -0.61796, -19.9371, 16.7741, 13.7104, 496.236, -0.807313, 366.008)
+
+[node name="SmallRock59" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-14.0295, 2.26534, 15.8821, 13.6594, -9.37881, 13.4038, 8.41403, 19.0028, 4.72208, 495.5, -0.169706, 367.805)
+
+[node name="SmallRock47" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-17.5607, 5.80591, -20.1028, 16.6158, 19.8207, -8.79012, 12.7181, -17.8784, -16.2732, 486.254, -0.840741, 374.838)
+
+[node name="SmallRock45" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-2.50582, -8.22616, 5.44265, -1.73148, -5.16149, -8.59839, 9.71052, -3.04312, -0.128688, 478.952, 1.04623, 373.037)
+
+[node name="SmallRock46" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-6.53004, -6.0421, 4.94195, -1.73148, -5.16149, -8.59839, 7.6113, -6.35794, 2.28387, 475.075, 1.04623, 372.652)
+
+[node name="SmallRock42" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-15.2236, 18.0267, -13.7656, 18.9105, 19.2418, 4.2847, 12.524, -7.14151, -23.2025, 471.759, -0.840741, 372.28)
+
+[node name="SmallRock43" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-13.4629, 19.411, 13.7175, 13.6846, 19.2201, -13.7669, -19.4344, 0.0870228, -19.1966, 466.504, -0.840741, 369.839)
 
 [node name="SmallRock27" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(-24.8635, 4.50617, -10.3785, 4.91409, 26.871, -0.105668, 10.1916, -1.96316, -25.2682, 481.575, -1.3995, 421.736)
@@ -1187,6 +1234,15 @@ transform = Transform3D(-25.156, -5.95803, -8.82537, -10.6459, 14.5496, 20.5227,
 
 [node name="SmallRock30" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(-24.6804, -10.3578, -5.45945, -7.70978, 4.79059, 25.7646, -8.81184, 24.8189, -7.25162, 467.02, 0.178635, 437.664)
+
+[node name="SmallRock49" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-26.197, -0.691554, -7.71058, -7.70978, 4.79059, 25.7646, 0.699948, 26.8846, -4.78941, 458.996, 0.848818, 338.829)
+
+[node name="SmallRock50" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-21.396, -2.66079, -1.41278, -3.00248, 19.6636, 8.43746, 0.246677, 8.55137, -19.8413, 459.901, -0.461593, 336.422)
+
+[node name="SmallRock51" parent="Rocks" instance=ExtResource("10_qtujl")]
+transform = Transform3D(-10.1013, 13.2733, -6.23482, 12.2684, 11.7963, 5.23661, 8.03363, -1.32504, -15.8365, 461.825, -1.02764, 338.698)
 
 [node name="SmallRock9" parent="Rocks" instance=ExtResource("10_qtujl")]
 transform = Transform3D(-18.311, 17.3815, 10.4307, 2.97571, 16.2088, -21.786, -20.0515, -13.4673, -12.7585, 489.289, -2.57015, 468.525)
@@ -1209,7 +1265,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_w4by1")
+modifier_stack = SubResource("Resource_n2n8s")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -1333,6 +1389,16 @@ modulate = Color(1, 1, 1, 0.905882)
 upper_fade = 0.0035205
 cull_mask = 1048574
 
+[node name="MossyDecal10" type="Decal" parent="Audio/Decals"]
+transform = Transform3D(0.873807, -0.36892, 0.316797, 0.346829, 0.929461, 0.125742, -0.340839, 0, 0.940122, 0.0424652, -1.33121, 38.8762)
+size = Vector3(2.44824, 2.66602, 4.31873)
+texture_albedo = ExtResource("30_ux6j1")
+texture_orm = SubResource("GradientTexture1D_l278i")
+modulate = Color(1, 1, 1, 0.823529)
+albedo_mix = 0.65
+upper_fade = 0.0035205
+cull_mask = 1048574
+
 [node name="MossyDecal2" type="Decal" parent="Audio/Decals"]
 transform = Transform3D(0.995922, 0, 0.0902155, 0, 1, 0, -0.0902155, 0, 0.995922, 0.33844, -1.19985, 46.1234)
 size = Vector3(2.44824, 2.66602, 4.31873)
@@ -1406,8 +1472,17 @@ upper_fade = 0.0035205
 cull_mask = 1048574
 
 [node name="FootprintDecal" type="Decal" parent="Audio/Decals"]
-transform = Transform3D(-0.722043, 0, 0.0278769, 0, 0.722584, 0, -0.0278769, 0, -0.722043, -3.63866, -0.235254, -40.1343)
-size = Vector3(14.5947, 2, 11.4932)
+transform = Transform3D(0.229123, 0, 0.276834, 0, 0.359354, 0, -0.276834, 0, 0.229123, 0.193008, -0.277198, -38.8087)
+size = Vector3(14.5947, 5.61328, 11.4932)
+texture_albedo = ExtResource("31_t63rf")
+texture_normal = ExtResource("32_m3xfm")
+texture_orm = ExtResource("33_xqnly")
+modulate = Color(0.466667, 0.423529, 0.380392, 1)
+albedo_mix = 0.25
+
+[node name="FootprintDecal2" type="Decal" parent="Audio/Decals"]
+transform = Transform3D(0.282458, 0, -0.212455, 0, 0.359354, 0, -0.222153, 0, -0.270127, -2.48535, -0.277198, -40.4837)
+size = Vector3(14.5947, 5.61328, 11.4932)
 texture_albedo = ExtResource("31_t63rf")
 texture_normal = ExtResource("32_m3xfm")
 texture_orm = ExtResource("33_xqnly")
@@ -1438,6 +1513,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 476.616, 2.5447, 389.273)
 
 [node name="BigTree" parent="Trees" instance=ExtResource("35_y0sg6")]
 transform = Transform3D(1.23131, 0, -0.626709, 0, 1.38163, 0, 0.626709, 0, 1.23131, 0.942703, -0.437127, 17.2505)
+
+[node name="BigTree3" parent="Trees" instance=ExtResource("35_y0sg6")]
+transform = Transform3D(0.946654, -0.0605068, 1.00453, 0.0414973, 1.3803, 0.0440342, -1.00549, 0, 0.947563, 17.6581, -1.24693, -12.8188)
 
 [node name="BigTree2" parent="Trees" instance=ExtResource("35_y0sg6")]
 transform = Transform3D(2.84579, 0.419369, -0.1775, -0.418556, 2.85132, 0.0261064, 0.179409, 0, 2.87641, 13.9167, -0.437127, 90.8905)
@@ -1482,3 +1560,17 @@ albedo_mix = 0.61
 
 [node name="Pipe" parent="." instance=ExtResource("46_vt1tq")]
 transform = Transform3D(-7.25022, 0, 6.33834e-07, 0, 7.25022, 0, -6.33834e-07, 0, -7.25022, 486.556, 3.39278, 725.43)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.811, -1.52588e-05, 261.052)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830536, 0, 0.859039)
+shape = SubResource("BoxShape3D_smgt7")
+
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="Boat" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Boat" method="_on_area_3d_body_entered"]

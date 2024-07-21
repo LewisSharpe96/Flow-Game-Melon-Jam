@@ -1,6 +1,6 @@
 extends Node
 
-@export var max_volume = -10.0
+@export var max_volume = 00.0
 @export var min_volume = -50.0
 @export var volume_multiplier = 0.03
 

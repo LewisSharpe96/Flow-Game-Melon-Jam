@@ -5,10 +5,12 @@ extends RigidBody3D
 @export var water_angular_drag := 0.05
 
 @export var wind_force := 100;
-@export var down_wind_force := 120;
+@export var down_wind_force := 100;
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var water = get_node('/root/Main/Water')
+
+@onready var anim_player = $"../CanvasLayer/AnimationPlayer"
 
 @onready var probes = $ProbeContainer.get_children()
 
@@ -16,21 +18,24 @@ extends RigidBody3D
 
 @export var boat_spawn = Marker3D
 
+var died = false
+
 var submerged := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	died = false
+	anim_player.play("Fade")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	apply_force(Vector3(0, 0, -down_wind_force))
+	if died == false:
+		apply_force(Vector3(0, 0, -down_wind_force))
 	
-	if Input.is_action_pressed("Left"):
-		apply_force(Vector3(wind_force, 0, 0))
-	if Input.is_action_pressed("Right"):
-		apply_force(Vector3(-wind_force, 0, 0))
+		if Input.is_action_pressed("Left"):
+			apply_force(Vector3(wind_force, 0, 0))
+		if Input.is_action_pressed("Right"):
+			apply_force(Vector3(-wind_force, 0, 0))
 
 func _physics_process(delta):
 	submerged = false
@@ -47,4 +52,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 
 
 func _on_area_3d_body_entered(body):
-	global_position = boat_spawn.global_position
+	anim_player.play("Fade",-1.0,-1.0,true)
+	print("Died")
+	died = true
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Fade" && died == true:
+		get_tree().change_scene_to_file("res://MainBackup.tscn")

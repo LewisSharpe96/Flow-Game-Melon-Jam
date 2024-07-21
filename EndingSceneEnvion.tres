@@ -1,0 +1,23 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dny10nlap24tb"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_2fhnd"]
+rayleigh_coefficient = 0.0
+rayleigh_color = Color(0.0331533, 0.00428479, 1.50409e-09, 1)
+
+[sub_resource type="Sky" id="Sky_wc0b5"]
+sky_material = SubResource("PhysicalSkyMaterial_2fhnd")
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 0.18
+sky = SubResource("Sky_wc0b5")
+tonemap_mode = 2
+tonemap_exposure = 1.15
+tonemap_white = 2.6
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0167
+volumetric_fog_albedo = Color(1, 0.751459, 0.670498, 1)
