@@ -15,7 +15,7 @@ normal_enabled = true
 normal_texture = ExtResource("2_o55oy")
 
 [sub_resource type="Gradient" id="Gradient_xh8cj"]
-colors = PackedColorArray(0.392157, 0.419608, 0.164706, 1, 0.392157, 0.419608, 0.164706, 1)
+colors = PackedColorArray(0.260282, 0.348893, 0.128443, 1, 0.175274, 0.323028, 0.166105, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_xv3vh"]
 gradient = SubResource("Gradient_xh8cj")
@@ -34,7 +34,7 @@ noise = SubResource("FastNoiseLite_t7o5y")
 render_priority = 0
 shader = ExtResource("3_j4bew")
 shader_parameter/alpha_scissor_threshold = 0.568
-shader_parameter/transmission = Color(0.39375, 0.419332, 0.166466, 1)
+shader_parameter/transmission = Color(0.166085, 0.288774, 0.135188, 1)
 shader_parameter/total_height = 1.0
 shader_parameter/wind_direction = Vector2(1, -0.5)
 shader_parameter/wind_speed = 1.0
