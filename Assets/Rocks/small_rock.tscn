@@ -58,6 +58,7 @@ data = PackedVector3Array(-0.1088, 0.0795, -0.0822, -0.1249, 0.0637, -0.0622, -0
 [node name="SmallRock" type="Node3D"]
 
 [node name="Aset_nature_rock_S_wgywdbus_00_LOD4" type="MeshInstance3D" parent="."]
+layers = 3
 mesh = SubResource("ArrayMesh_6c5am")
 skeleton = NodePath("")
 

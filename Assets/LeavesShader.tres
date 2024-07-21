@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://c86dlh70nqt6h"]
+
+[ext_resource type="Shader" path="res://assets/3d/leaves.gdshader" id="1_2d3af"]
+[ext_resource type="Texture2D" uid="uid://cs6is2s8cvv2v" path="res://assets/3d/Bush/Fern_Grey.png" id="2_axhop"]
+
+[sub_resource type="Gradient" id="Gradient_xh8cj"]
+colors = PackedColorArray(0.345098, 0.423529, 0.109804, 1, 0.345098, 0.423529, 0.109804, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xv3vh"]
+gradient = SubResource("Gradient_xh8cj")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t7o5y"]
+seed = 1
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_03p8g"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.65
+noise = SubResource("FastNoiseLite_t7o5y")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2d3af")
+shader_parameter/alpha_scissor_threshold = 0.568
+shader_parameter/transmission = Color(0.345098, 0.423529, 0.109804, 1)
+shader_parameter/total_height = 1.0
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_strength = 0.05
+shader_parameter/noise_scale = 20.0
+shader_parameter/texture_albedo = ExtResource("2_axhop")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_xv3vh")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_03p8g")
