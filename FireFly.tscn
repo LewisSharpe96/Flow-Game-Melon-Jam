@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://y4ue131e4rfn"]
+
+[ext_resource type="Material" uid="uid://qvit06okc503" path="res://FireFlyMat.tres" id="1_1u4b4"]
+[ext_resource type="Script" path="res://Assets/Particles/FallingLeaves.gd" id="2_k4n1a"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wscyl"]
+emission_shape_scale = Vector3(10, 5, 5)
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -45.0
+angle_max = 45.0
+spread = 43.182
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 0.2
+scale_min = 0.5
+turbulence_enabled = true
+turbulence_noise_strength = 5.41
+turbulence_noise_scale = 4.373
+collision_mode = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_tsnrx"]
+material = ExtResource("1_1u4b4")
+radius = 0.05
+height = 0.1
+
+[node name="Firefly" type="GPUParticles3D"]
+transform = Transform3D(12.9633, 0, 0, 0, 1, 0, 0, 0, 5.85901, -0.0193158, 0.102444, -0.020462)
+amount = 60
+lifetime = 15.0
+preprocess = 20.0
+randomness = 1.0
+visibility_aabb = AABB(-1.66689, -9.72908, -3.1866, 3.33379, 19.4582, 6.3732)
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_wscyl")
+draw_pass_1 = SubResource("SphereMesh_tsnrx")
+script = ExtResource("2_k4n1a")

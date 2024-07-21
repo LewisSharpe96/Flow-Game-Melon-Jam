@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://qvit06okc503"]
+
+[ext_resource type="Texture2D" uid="uid://bthpwk6p2fhtu" path="res://Assets/Firefly/Firefly_Metallic_Red_Rough_Green_AO_Blue.png" id="2_i8pk4"]
+[ext_resource type="Texture2D" uid="uid://3hdfgb51dynx" path="res://Assets/Firefly/Firefly_Normal.png" id="4_w7c56"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.937
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.643137, 0.643137, 0.305882, 1)
+metallic = 1.0
+metallic_texture = ExtResource("2_i8pk4")
+roughness_texture = ExtResource("2_i8pk4")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(0.643137, 0.643137, 0.305882, 1)
+emission_energy_multiplier = 25.0
+normal_enabled = true
+normal_texture = ExtResource("4_w7c56")
+ao_enabled = true
+ao_texture = ExtResource("2_i8pk4")
+ao_texture_channel = 2

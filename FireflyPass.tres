@@ -1,0 +1,7 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://cat0bw4e0kklh"]
+
+[ext_resource type="Material" uid="uid://qvit06okc503" path="res://FireFlyMat.tres" id="1_ea67p"]
+
+[resource]
+material = ExtResource("1_ea67p")
+size = Vector2(0.5, 0.5)

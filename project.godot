@@ -50,4 +50,6 @@ Esc={
 
 [rendering]
 
+environment/volumetric_fog/volume_size=32
+environment/volumetric_fog/volume_depth=32
 anti_aliasing/quality/msaa_3d=3

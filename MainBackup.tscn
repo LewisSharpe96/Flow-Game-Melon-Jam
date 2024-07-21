@@ -1,8 +1,9 @@
-[gd_scene load_steps=87 format=3 uid="uid://ds4gm6ociyyrs"]
+[gd_scene load_steps=93 format=3 uid="uid://ds4gm6ociyyrs"]
 
 [ext_resource type="Texture2D" uid="uid://bay3ak8k8pevv" path="res://Assets/kloppenheim_06_puresky_4k.exr" id="1_cyo0m"]
 [ext_resource type="Script" path="res://main.gd" id="1_eu26w"]
 [ext_resource type="Shader" path="res://assets/shaders/water.gdshader" id="2_twn8n"]
+[ext_resource type="Texture2D" uid="uid://t0j248tk5ngo" path="res://Assets/garage_2k.exr" id="3_c0waw"]
 [ext_resource type="Script" path="res://Water.gd" id="3_t5r3v"]
 [ext_resource type="PackedScene" uid="uid://dl567efhbp7vv" path="res://boat.tscn" id="4_7remr"]
 [ext_resource type="Script" path="res://CameraRotation.gd" id="6_kcoc3"]
@@ -40,6 +41,165 @@
 [ext_resource type="PackedScene" uid="uid://dx6nrja63cmmv" path="res://Assets/MeshFence/mesh_fence.tscn" id="38_djj17"]
 [ext_resource type="PackedScene" uid="uid://dapjs8rh6wj64" path="res://Assets/CookingPan/cooking_pan.tscn" id="39_233to"]
 [ext_resource type="PackedScene" uid="uid://c0kpdr0foyfr3" path="res://Assets/Chair/chair.tscn" id="40_bg2uf"]
+[ext_resource type="PackedScene" uid="uid://y4ue131e4rfn" path="res://FireFly.tscn" id="41_sdpyw"]
+
+[sub_resource type="Animation" id="Animation_jpjqk"]
+resource_name = "Daylight Anim"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Environment/WorldEnvironment:environment:background_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Environment/DirectionalLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.327]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/DirectionalLight3D:light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.935604, 0.590774, 0.252402, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/WorldEnvironment:environment:volumetric_fog_density")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0167]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FogVolume:material:density")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.02]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("Environment/WorldEnvironment:environment:sky:sky_material:panorama")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 4.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_cyo0m"), ExtResource("3_c0waw")]
+}
+
+[sub_resource type="Animation" id="Animation_5qo1f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Environment/WorldEnvironment:environment:background_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Environment/DirectionalLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.327]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/DirectionalLight3D:light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.935604, 0.590774, 0.252402, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/WorldEnvironment:environment:volumetric_fog_density")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0167]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FogVolume:material:density")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.02]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Environment/WorldEnvironment:environment:sky:sky_material:panorama")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_cyo0m")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8o7y"]
+_data = {
+"Daylight Anim": SubResource("Animation_jpjqk"),
+"RESET": SubResource("Animation_5qo1f")
+}
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vcvt7"]
 panorama = ExtResource("1_cyo0m")
@@ -49,6 +209,7 @@ sky_material = SubResource("PanoramaSkyMaterial_vcvt7")
 
 [sub_resource type="Environment" id="Environment_w5hlc"]
 background_mode = 2
+background_energy_multiplier = 0.18
 sky = SubResource("Sky_wc0b5")
 tonemap_mode = 2
 tonemap_exposure = 1.3
@@ -57,7 +218,9 @@ ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
-volumetric_fog_density = 0.02
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0167
+volumetric_fog_albedo = Color(1, 0.751459, 0.670498, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hy6fq"]
 seed = 50
@@ -133,7 +296,7 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 20.0
 dof_blur_near_transition = 8.0
 
-[sub_resource type="Resource" id="Resource_frxkn"]
+[sub_resource type="Resource" id="Resource_6hfrx"]
 script = ExtResource("12_qnmrm")
 amount = 6000
 enabled = true
@@ -142,7 +305,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_fuytw"]
+[sub_resource type="Resource" id="Resource_dyyrd"]
 script = ExtResource("13_weldj")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -153,7 +316,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_08q1c"]
+[sub_resource type="Resource" id="Resource_bnw1x"]
 script = ExtResource("14_cy0lo")
 iterations = 3
 offset_step = 0.2
@@ -165,7 +328,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_irx7o"]
+[sub_resource type="Resource" id="Resource_b8exo"]
 script = ExtResource("15_baqw0")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -181,7 +344,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xv4dj"]
+[sub_resource type="Resource" id="Resource_wjydn"]
 script = ExtResource("16_2m28k")
 operation = 1
 scale = Vector3(1.2, 3, 3)
@@ -191,9 +354,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ym6eo"]
+[sub_resource type="Resource" id="Resource_b17ry"]
 script = ExtResource("11_t2pdq")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_frxkn"), SubResource("Resource_fuytw"), SubResource("Resource_08q1c"), SubResource("Resource_irx7o"), SubResource("Resource_xv4dj")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_6hfrx"), SubResource("Resource_dyyrd"), SubResource("Resource_bnw1x"), SubResource("Resource_b8exo"), SubResource("Resource_wjydn")])
 
 [sub_resource type="Resource" id="Resource_7oaff"]
 script = ExtResource("18_la8nv")
@@ -386,8 +549,17 @@ colors = PackedColorArray(0.89059, 0.89059, 0.89059, 1, 0.886262, 0.886261, 0.88
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l278i"]
 gradient = SubResource("Gradient_svro6")
 
+[sub_resource type="FogMaterial" id="FogMaterial_w45m6"]
+density = 0.02
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_eu26w")
+
+[node name="DaylightAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e8o7y")
+}
+autoplay = "Daylight Anim"
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -395,7 +567,9 @@ script = ExtResource("1_eu26w")
 environment = SubResource("Environment_w5hlc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-0.940098, 0.085929, -0.329898, -0.23722, -0.859886, 0.452021, -0.244833, 0.503202, 0.828761, 0, 0, 0)
+transform = Transform3D(-0.940098, 0.244334, -0.237733, -0.23722, -0.96969, -0.0585479, -0.244833, 0.00135434, 0.969564, 0, 0, 0)
+light_color = Color(0.935604, 0.590774, 0.252402, 1)
+light_energy = 0.327
 shadow_enabled = true
 
 [node name="Water" type="MeshInstance3D" parent="."]
@@ -403,9 +577,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.077, 0, 485.031)
 mesh = SubResource("PlaneMesh_0xwda")
 script = ExtResource("3_t5r3v")
 
-[node name="Boat" parent="." instance=ExtResource("4_7remr")]
+[node name="FireFlies" type="Node3D" parent="."]
+transform = Transform3D(-5.66644e-07, 0, 5.85901, 0, 1, 0, -12.9633, 0, -2.56105e-07, 453.488, 10.8683, 674.682)
+
+[node name="Firefly" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Firefly2" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 0, 0, 6.95089)
+
+[node name="Firefly3" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 0, 0, 13.1017)
+
+[node name="Firefly4" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 10.4543, 0, 0)
+
+[node name="Firefly5" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 10.4543, 0, 6.95089)
+
+[node name="Firefly6" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 10.4543, 0, 13.1017)
+
+[node name="Firefly7" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 18.8937, 0, 7.62939e-06)
+
+[node name="Firefly8" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 18.8937, 0, 6.9509)
+
+[node name="Firefly9" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 18.8937, 0, 13.1017)
+
+[node name="Firefly10" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 7.62939e-06)
+
+[node name="Firefly11" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 6.9509)
+
+[node name="Firefly12" parent="FireFlies" instance=ExtResource("41_sdpyw")]
+transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 0, 0, 1, 27.9901, 0, 13.1017)
+
+[node name="Boat" parent="." node_paths=PackedStringArray("boat_spawn") instance=ExtResource("4_7remr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.06, 0.994991, 695.495)
 collision_layer = 2
+boat_spawn = NodePath("../BoatSpawn")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Boat"]
 transform = Transform3D(1, 0, 0, 0, -0.579381, 0.815057, 0, -0.815057, -0.579381, 0, 0, 0)
@@ -500,7 +714,7 @@ wind_multiplier = 0.015
 
 [node name="ProtonScatter2" type="Node3D" parent="Foliage"]
 script = ExtResource("10_gw5oq")
-modifier_stack = SubResource("Resource_ym6eo")
+modifier_stack = SubResource("Resource_b17ry")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -723,3 +937,8 @@ transform = Transform3D(-3.08383, 2.59255, 4.09777, -1.38887, 4.18054, -3.69014,
 
 [node name="Chair" parent="." instance=ExtResource("40_bg2uf")]
 transform = Transform3D(-9.74362, -1.128, -11.2278, -1.16343, 14.8555, -0.482825, 11.2242, 0.560625, -9.7968, 478.931, 1.29094, 305.334)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 485.748, 3.05176e-05, 471.299)
+size = Vector3(156.286, 81.6544, 676.647)
+material = SubResource("FogMaterial_w45m6")
